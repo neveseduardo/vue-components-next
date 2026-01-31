@@ -1,0 +1,1 @@
+export { default as GSwitch } from './Switch.vue';

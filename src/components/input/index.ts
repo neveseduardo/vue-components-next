@@ -1,0 +1,1 @@
+export { default as GInput } from './Input.vue'

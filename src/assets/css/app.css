@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+
+@import './utils/variables';
+@import './modules/index.css';
