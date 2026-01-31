@@ -1,5 +1,8 @@
 <template>
-	<div class="g-dropdown" :class="classes">
+	<div
+		class="g-dropdown"
+		:class="classes"
+	>
 		<slot />
 	</div>
 </template>

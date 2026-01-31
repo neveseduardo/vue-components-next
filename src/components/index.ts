@@ -18,6 +18,7 @@ import Tag from './tag/Tag.vue';
 import Accordion from './accordion/Accordion.vue';
 import Tooltip from './tooltip/Tooltip.vue';
 import Pagination from './pagination/Pagination.vue';
+import Input from './input/Input.vue';
 
 export {
 	Button,
@@ -37,6 +38,7 @@ export {
 	Accordion,
 	Tooltip,
 	Pagination,
+	Input,
 };
 
 export default {
@@ -58,5 +60,6 @@ export default {
 		app.component('GAccordion', Accordion);
 		app.component('GTooltip', Tooltip);
 		app.component('GPagination', Pagination);
+		app.component('GInput', Input);
 	},
 };

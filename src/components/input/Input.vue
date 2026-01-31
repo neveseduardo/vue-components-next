@@ -1,135 +1,217 @@
 <template>
-	<div class="g-input" :class="classes">
-		<ElInput
-			v-bind="$attrs"
+	<InputWrapper
+		:label="displayLabel"
+		:label-variant="labelVariant"
+		:variant="variant"
+		:focused="focused"
+		:has-value="hasValue"
+		:disabled="disabled"
+		:invalid="invalid"
+		:size="size"
+		:loading="loading"
+	>
+		<template #left v-if="slots.left">
+			<slot name="left" />
+		</template>
+
+		<input
+			:id="inputId"
 			ref="input"
 			v-model="mutable"
-			class="g-input__field"
-			:clearable="clearable"
-			:autosize="autosize"
-			:step="step"
+			class="g-input"
+			:class="inputClasses"
 			:type="typeValue"
-			:disabled="disabled"
+			:disabled="isDisabled"
+			:placeholder="computedPlaceholder"
+			v-bind="filteredAttrs"
 			@keyup="$emit('keyup', $event)"
 			@keydown="$emit('keydown', $event)"
 			@keypress="$emit('keypress', $event)"
+			@input="onInput"
 			@change="onChange"
 			@focus="onFocus"
 			@blur="onBlur"
-			@clear="onClear"
-		/>
-	</div>
+		>
+
+		<template #right v-if="slots.right || clearable || loading">
+			<slot name="right" />
+			<button
+				v-if="clearable && hasValue && !disabled"
+				type="button"
+				class="g-input__clear"
+				@click="clear"
+			>
+				×
+			</button>
+			<div
+				v-else-if="loading"
+				class="g-input__spinner"
+			/>
+		</template>
+	</InputWrapper>
 </template>
 
 <script setup lang="ts">
-import type { ElInput } from 'element-plus';
-import { ref, computed, nextTick, type Component } from 'vue';
+import { ref, computed, nextTick, useAttrs, useId, useSlots } from 'vue';
+import InputWrapper from '../inputwrapper/InputWrapper.vue';
 
-interface IconProp {
-	name?: string
-	provide?: string
-	type?: string
-}
+type InputSize = 'sm' | 'md' | 'lg';
+type InputType = 'text' | 'number' | 'email' | 'search' | 'password';
+type LabelVariant = 'floating' | 'static' | 'placeholder';
 
 interface Props {
+	modelValue?: number | string
 	value?: number | string
-	icon?: string | IconProp
-	suffix?: boolean
 	disabled?: boolean
-	type?: 'text' | 'number' | 'email' | 'search' | 'textarea' | 'password'
+	type?: InputType
 	label?: string
-	labelVariant?: 'in' | 'on' | 'over'
+	placeholder?: string
+	labelVariant?: LabelVariant
+	variant?: 'default' | 'neutral'
 	invalid?: boolean
-	step?: number
 	loading?: boolean
-	autosize?: { minRows: number; maxRows: number } | boolean
+	size?: InputSize
 	clearable?: boolean
+	id?: string
+	readonly?: boolean
+	required?: boolean
+	maxlength?: number
+	minlength?: number
+	pattern?: string
+	min?: number | string
+	max?: number | string
+	step?: number | string
 }
 
 const props = withDefaults(defineProps<Props>(), {
+	modelValue: '',
 	value: '',
-	icon: '',
-	suffix: false,
 	disabled: false,
 	type: 'text',
 	label: '',
-	labelVariant: 'in',
+	placeholder: '',
+	labelVariant: 'placeholder',
+	variant: 'default',
 	invalid: false,
-	step: 1,
-	loading: false,
-	autosize: () => ({ minRows: 4, maxRows: 6 }),
+	size: 'md',
 	clearable: true,
+	readonly: false,
+	required: false,
 });
+
+const attrs = useAttrs();
+const slots = useSlots();
+const inputId = props.id || useId();
 
 const emit = defineEmits<{
 	(e: 'update:modelValue', value: number | string): void
 	(e: 'input', value: number | string): void
 	(e: 'change', value: number | string): void
-	(e: 'focus', value: FocusEvent): void
+	(e: 'focus', event: FocusEvent): void
 	(e: 'blur'): void
-	(e: 'clear', value: number | string): void
+	(e: 'clear'): void
 	(e: 'keyup', event: KeyboardEvent): void
 	(e: 'keydown', event: KeyboardEvent): void
 	(e: 'keypress', event: KeyboardEvent): void
 	(e: 'search'): void
 }>();
 
-const input = ref<Component<typeof ElInput>>();
+const input = ref<HTMLInputElement>();
 const focused = ref(false);
 
-const ACCEPTED_TYPES = ['text', 'number', 'email', 'search', 'textarea', 'password'] as const;
+const ACCEPTED_TYPES: InputType[] = ['text', 'number', 'email', 'search', 'password'];
 
 const mutable = computed({
-	get: () => {
-		focused.value = !isEmpty(props.value);
-		return props.value;
-	},
+	get: () => props.modelValue || props.value,
 	set: (value) => {
 		emit('update:modelValue', value);
 		emit('input', value);
 	},
 });
 
+const hasValue = computed(() => !isEmpty(mutable.value));
 const isDisabled = computed(() => props.disabled || props.loading);
 const typeValue = computed(() => {
-	if (ACCEPTED_TYPES.includes(props.type)) return props.type;
-	return 'text';
+	return ACCEPTED_TYPES.includes(props.type) ? props.type : 'text';
 });
 
-focused.value = !props.value;
+const displayLabel = computed(() => {
+	if (!props.label) return '';
+	return props.label;
+});
 
-const onChange = (value: number | string) => {
+const computedPlaceholder = computed(() => {
+	if (props.labelVariant === 'floating' && props.label) {
+		return '';
+	}
+	return props.placeholder;
+});
+
+const filteredAttrs = computed(() => {
+	const { class: _, style: __, ...rest } = attrs;
+	return rest;
+});
+
+const inputClasses = computed(() => ({
+	[`g-input--${props.type}`]: props.type,
+	'is-disabled': isDisabled.value,
+	'is-invalid': props.invalid,
+	'is-loading': props.loading,
+	'has-left-slot': !!slots.left,
+	'has-right-slot': !!slots.right,
+}));
+
+const onInput = (event: Event) => {
+	const target = event.target as HTMLInputElement;
+	const value = target.value;
+	focused.value = true;
+	emit('input', value);
+};
+
+const onChange = (event: Event) => {
 	if (!isDisabled.value) {
-		emit('change', value);
+		const target = event.target as HTMLInputElement;
+		emit('change', target.value);
 	}
 };
 
-const onFocus = (value: FocusEvent) => {
+const onFocus = (event: FocusEvent) => {
 	if (!isDisabled.value) {
-		emit('focus', value);
+		focused.value = true;
+		emit('focus', event);
 	}
 };
 
 const onBlur = () => {
 	nextTick(() => {
-		// input.value?.blur();
-		focused.value = !isEmpty(mutable.value);
+		focused.value = false;
 		emit('blur');
 	});
 };
 
-const onClear = (value: number | string) => {
-	emit('clear', value);
-	onBlur();
+const clear = () => {
+	mutable.value = '';
+	emit('clear');
 };
 
-const classes = computed(() => ({
-	[`g-input--${props.type}`]: props.type,
-	[`g-input--${props.labelVariant}`]: props.label,
-	'is-disabled': props.disabled,
-	'is-invalid': props.invalid,
-	'is-loading': props.loading,
-}));
+const focus = () => {
+	input.value?.focus();
+};
+
+const blur = () => {
+	input.value?.blur();
+};
+
+const select = () => {
+	input.value?.select();
+};
+
+defineExpose({
+	focus,
+	blur,
+	select,
+	input,
+});
 
 const isEmpty = (value: any): boolean => {
 	return value === null || value === undefined || value === '';
