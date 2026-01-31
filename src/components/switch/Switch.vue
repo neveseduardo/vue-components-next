@@ -1,20 +1,21 @@
 <template>
 	<div class="g-switch" :class="classes">
-		<ElSwitch
-			v-bind="$attrs"
-			v-model="mutable"
-			class="g-switch__input"
-			:active-text="text.active"
-			:inactive-text="text.inactive"
-			:disabled="disabled"
-			@change="onChange"
-		/>
+		<div 
+			class="g-switch__wrapper"
+			@click="toggleValue"
+		>
+			<div class="g-switch__track" :class="{ 'is-active': mutable }">
+				<div class="g-switch__thumb" :class="{ 'is-active': mutable }"></div>
+			</div>
+			<div v-if="text" class="g-switch__label">
+				{{ mutable ? text.active : text.inactive }}
+			</div>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { ElSwitch } from 'element-plus';
 
 interface SwitchText {
 	active: string
@@ -55,9 +56,12 @@ const classes = computed(() => ({
 	'g-switch--small': props.small,
 }));
 
-const onChange = (value: number | string | boolean) => {
+const toggleValue = () => {
 	if (!props.disabled) {
-		emit('change', value);
+		const newValue = !mutable.value;
+		emit('update:modelValue', newValue);
+		emit('input', newValue);
+		emit('change', newValue);
 	}
 };
 </script>

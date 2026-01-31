@@ -1,0 +1,84 @@
+:root {
+	--dropdown-bg-color: var(--color-white, #ffffff);
+	--dropdown-text-color: var(--color-text-primary, #303133);
+	--dropdown-hover-bg: var(--color-primary-light-9, #ecf5ff);
+	--dropdown-border-color: var(--color-border, #e4e7ed);
+	--dropdown-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+	--dropdown-border-radius: var(--border-radius-base, 4px);
+	--dropdown-padding: var(--spacing-sm, 8px) 0;
+	--dropdown-item-padding: 0 var(--spacing-lg, 20px);
+	--dropdown-item-height: var(--height-base, 40px);
+	--dropdown-item-font-size: var(--font-size-base, 14px);
+	--dropdown-min-width: 120px;
+	--dropdown-z-index: 1000;
+}
+
+[data-theme="dark"] {
+	--dropdown-bg-color: var(--color-gray-800, #2d2d2d);
+	--dropdown-text-color: var(--color-gray-100, #e4e7ed);
+	--dropdown-hover-bg: var(--color-gray-700, #4a4a4a);
+	--dropdown-border-color: var(--color-gray-600, #6c757d);
+}
+
+.g-dropdown {
+	display: inline-block;
+}
+
+.g-dropdown.is-disabled {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+:deep(.el-dropdown-menu) {
+	background-color: var(--dropdown-bg-color);
+	border: 1px solid var(--dropdown-border-color);
+	border-radius: var(--dropdown-border-radius);
+	box-shadow: var(--dropdown-shadow);
+	padding: var(--dropdown-padding);
+	min-width: var(--dropdown-min-width);
+	z-index: var(--dropdown-z-index);
+}
+
+:deep(.el-dropdown-menu__item) {
+	color: var(--dropdown-text-color);
+	font-size: var(--dropdown-item-font-size);
+	line-height: var(--dropdown-item-height);
+	padding: var(--dropdown-item-padding);
+	cursor: pointer;
+	transition: background-color var(--transition-duration-base, 0.3s);
+}
+
+:deep(.el-dropdown-menu__item:hover) {
+	background-color: var(--dropdown-hover-bg);
+}
+
+:deep(.el-dropdown-menu__item.is-disabled) {
+	color: var(--color-text-placeholder, #c0c4cc);
+	cursor: not-allowed;
+}
+
+:deep(.el-dropdown-menu__item.is-disabled:hover) {
+	background-color: transparent;
+}
+
+:deep(.el-dropdown-menu__item--divided) {
+	border-top: 1px solid var(--dropdown-border-color);
+	margin-top: 4px;
+	padding-top: 8px;
+}
+
+.g-dropdown--bottom :deep(.el-popper) {
+	margin-top: 4px;
+}
+
+.g-dropdown--top :deep(.el-popper) {
+	margin-bottom: 4px;
+}
+
+.g-dropdown--left :deep(.el-popper) {
+	margin-right: 4px;
+}
+
+.g-dropdown--right :deep(.el-popper) {
+	margin-left: 4px;
+}

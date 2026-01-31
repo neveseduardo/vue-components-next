@@ -1,0 +1,98 @@
+:root {
+	--switch-width: 44px;
+	--switch-height: 22px;
+	--switch-thumb-size: 18px;
+	--switch-thumb-offset: 2px;
+	--switch-track-bg: var(--color-gray-300, #dcdfe6);
+	--switch-track-active-bg: var(--color-primary, #409eff);
+	--switch-thumb-bg: var(--color-white, #ffffff);
+	--switch-thumb-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	--switch-transition: all var(--transition-duration-base, 0.3s) cubic-bezier(0.4, 0, 0.2, 1);
+	--switch-label-font-size: var(--font-size-base, 14px);
+	--switch-label-color: var(--color-text-primary, #303133);
+	--switch-label-margin-left: var(--spacing-sm, 8px);
+}
+
+[data-theme="dark"] {
+	--switch-track-bg: var(--color-gray-600, #4c4d4f);
+	--switch-label-color: var(--color-gray-100, #e4e7ed);
+}
+
+.g-switch {
+	display: inline-flex;
+	align-items: center;
+}
+
+.g-switch.is-disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.g-switch__wrapper {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.g-switch.is-disabled .g-switch__wrapper {
+	cursor: not-allowed;
+}
+
+.g-switch__track {
+	position: relative;
+	width: var(--switch-width);
+	height: var(--switch-height);
+	background-color: var(--switch-track-bg);
+	border-radius: calc(var(--switch-height) / 2);
+	transition: var(--switch-transition);
+}
+
+.g-switch__track.is-active {
+	background-color: var(--switch-track-active-bg);
+}
+
+.g-switch__thumb {
+	position: absolute;
+	top: var(--switch-thumb-offset);
+	left: var(--switch-thumb-offset);
+	width: var(--switch-thumb-size);
+	height: var(--switch-thumb-size);
+	background-color: var(--switch-thumb-bg);
+	border-radius: 50%;
+	box-shadow: var(--switch-thumb-shadow);
+	transition: var(--switch-transition);
+}
+
+.g-switch__thumb.is-active {
+	transform: translateX(calc(var(--switch-width) - var(--switch-height)));
+}
+
+.g-switch__label {
+	margin-left: var(--switch-label-margin-left);
+	font-size: var(--switch-label-font-size);
+	color: var(--switch-label-color);
+	transition: var(--switch-transition);
+}
+
+.g-switch--small {
+	--switch-width: 36px;
+	--switch-height: 18px;
+	--switch-thumb-size: 14px;
+	--switch-thumb-offset: 2px;
+}
+
+.g-switch--small .g-switch__label {
+	--switch-label-font-size: var(--font-size-sm, 12px);
+}
+
+.g-switch.is-disabled .g-switch__track {
+	background-color: var(--color-gray-200, #f5f7fa);
+}
+
+.g-switch.is-disabled .g-switch__track.is-active {
+	background-color: var(--color-primary-light-3, #79bbff);
+}
+
+.g-switch.is-disabled .g-switch__thumb {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}

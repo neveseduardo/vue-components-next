@@ -1,0 +1,120 @@
+<template>
+	<Dropdown trigger="click" @command="handleThemeChange">
+		<template #trigger>
+			<button class="theme-toggle__button" :title="currentThemeLabel">
+				<span class="theme-toggle__icon">{{ currentIcon }}</span>
+			</button>
+		</template>
+		<el-dropdown-item command="light">
+			<span class="theme-option">
+				<span class="theme-option__icon">☀️</span>
+				<span class="theme-option__label">Claro</span>
+			</span>
+		</el-dropdown-item>
+		<el-dropdown-item command="dark">
+			<span class="theme-option">
+				<span class="theme-option__icon">🌙</span>
+				<span class="theme-option__label">Escuro</span>
+			</span>
+		</el-dropdown-item>
+		<el-dropdown-item command="system">
+			<span class="theme-option">
+				<span class="theme-option__icon">💻</span>
+				<span class="theme-option__label">Sistema</span>
+			</span>
+		</el-dropdown-item>
+	</Dropdown>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue';
+import { ElDropdownItem } from 'element-plus';
+import { Dropdown } from '../dropdown';
+import { useTheme } from '../../composables/useTheme';
+
+const { theme, setTheme } = useTheme();
+
+const currentIcon = computed(() => {
+	switch (theme.value) {
+		case 'light': return '☀️';
+		case 'dark': return '🌙';
+		case 'system': return '💻';
+		default: return '💻';
+	}
+});
+
+const currentThemeLabel = computed(() => {
+	switch (theme.value) {
+		case 'light': return 'Tema Claro';
+		case 'dark': return 'Tema Escuro';
+		case 'system': return 'Tema do Sistema';
+		default: return 'Tema do Sistema';
+	}
+});
+
+const handleThemeChange = (command: 'light' | 'dark' | 'system') => {
+	setTheme(command);
+};
+</script>
+
+<style scoped>
+.theme-toggle__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-xs, 4px) var(--spacing-sm, 8px);
+	border: 1px solid var(--color-border, #e4e7ed);
+	border-radius: var(--border-radius-base, 4px);
+	background-color: var(--color-white, #ffffff);
+	color: var(--color-text-primary, #303133);
+	cursor: pointer;
+	transition: var(--transition-duration-base, 0.3s);
+	font-size: var(--font-size-lg, 16px);
+}
+
+.theme-toggle__button:hover {
+	background-color: var(--color-primary-light-9, #ecf5ff);
+	border-color: var(--color-primary, #409eff);
+}
+
+.theme-toggle__button:focus {
+	outline: 2px solid var(--color-primary, #409eff);
+	outline-offset: 2px;
+}
+
+.theme-toggle__icon {
+	display: block;
+	line-height: 1;
+}
+
+.theme-option {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-xs, 4px);
+}
+
+.theme-option__icon {
+	font-size: 16px;
+	line-height: 1;
+}
+
+.theme-option__label {
+	font-size: var(--font-size-base, 14px);
+	color: var(--color-text-primary, #303133);
+}
+
+[data-theme="dark"] .theme-toggle__button {
+	background-color: var(--color-gray-800, #2d2d2d);
+	border-color: var(--color-gray-600, #6c757d);
+	color: var(--color-gray-100, #e4e7ed);
+}
+
+[data-theme="dark"] .theme-toggle__button:hover {
+	background-color: var(--color-gray-700, #4a4a4a);
+	border-color: var(--color-primary, #409eff);
+}
+
+[data-theme="dark"] .theme-option__label {
+	color: var(--color-gray-100, #e4e7ed);
+}
+</style>
