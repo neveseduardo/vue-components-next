@@ -1,19 +1,19 @@
 <template>
-	<el-dropdown
+	<ElDropdown
 		:trigger="trigger"
 		:placement="placement"
 		:disabled="disabled"
-		@command="handleCommand"
 		class="g-dropdown"
 		:class="classes"
+		@command="handleCommand"
 	>
 		<slot name="trigger" />
 		<template #dropdown>
-			<el-dropdown-menu>
+			<ElDropdownMenu>
 				<slot />
-			</el-dropdown-menu>
+			</ElDropdownMenu>
 		</template>
-	</el-dropdown>
+	</ElDropdown>
 </template>
 
 <script setup lang="ts">
@@ -24,7 +24,7 @@ interface Props {
 	variant?: 'default' | 'click' | 'hover';
 	position?: 'bottom' | 'top' | 'left' | 'right';
 	disabled?: boolean;
-	trigger?: 'click' | 'hover' | 'focus';
+	trigger?: 'click' | 'hover' | 'contextmenu';
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -43,7 +43,7 @@ const placement = computed(() => {
 		'bottom': 'bottom',
 		'top': 'top',
 		'left': 'left',
-		'right': 'right'
+		'right': 'right',
 	};
 	return positionMap[props.position] || 'bottom';
 });

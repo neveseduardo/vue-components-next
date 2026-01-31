@@ -457,11 +457,186 @@
 				</div>
 			</section>
 		</div>
+
+		<!-- SWITCH SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<h1 class="text-3xl font-bold text-gray-900">
+				Switch Components
+			</h1>
+
+			<!-- BASIC SWITCHES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Basic Switches
+				</h2>
+				<p class="text-gray-600">Different switch states and configurations</p>
+
+				<div class="flex flex-wrap gap-6">
+					<div class="space-y-2">
+						<label class="block text-sm font-medium text-gray-700">Normal Switch</label>
+						<GSwitch 
+							v-model="switches.normal" 
+							@change="onSwitchChange('normal', $event)"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<label class="block text-sm font-medium text-gray-700">Small Switch</label>
+						<GSwitch 
+							v-model="switches.small" 
+							small
+							@change="onSwitchChange('small', $event)"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<label class="block text-sm font-medium text-gray-700">Disabled Switch</label>
+						<GSwitch 
+							:model-value="false"
+							disabled
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<label class="block text-sm font-medium text-gray-700">Custom Text</label>
+						<GSwitch 
+							v-model="switches.customText" 
+							:text="{ active: 'On', inactive: 'Off' }"
+							@change="onSwitchChange('customText', $event)"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- SWITCH GROUPS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Switch Groups
+				</h2>
+				<p class="text-gray-600">Multiple switches for settings</p>
+
+				<div class="space-y-4">
+					<div class="flex items-center justify-between p-4 border rounded-lg">
+						<div>
+							<h3 class="font-medium text-gray-900">Email Notifications</h3>
+							<p class="text-sm text-gray-600">Receive email updates about your account</p>
+						</div>
+						<GSwitch 
+							v-model="settings.notifications.email" 
+							@change="onSettingChange('email', $event)"
+						/>
+					</div>
+
+					<div class="flex items-center justify-between p-4 border rounded-lg">
+						<div>
+							<h3 class="font-medium text-gray-900">Push Notifications</h3>
+							<p class="text-sm text-gray-600">Receive push notifications on your device</p>
+						</div>
+						<GSwitch 
+							v-model="settings.notifications.push" 
+							@change="onSettingChange('push', $event)"
+						/>
+					</div>
+
+					<div class="flex items-center justify-between p-4 border rounded-lg">
+						<div>
+							<h3 class="font-medium text-gray-900">Dark Mode</h3>
+							<p class="text-sm text-gray-600">Use dark theme across the application</p>
+						</div>
+						<GSwitch 
+							v-model="settings.darkMode" 
+							@change="onThemeToggle($event)"
+						/>
+					</div>
+
+					<div class="flex items-center justify-between p-4 border rounded-lg">
+						<div>
+							<h3 class="font-medium text-gray-900">Analytics</h3>
+							<p class="text-sm text-gray-600">Help us improve by sharing usage data</p>
+						</div>
+						<GSwitch 
+							v-model="settings.analytics" 
+							@change="onSettingChange('analytics', $event)"
+						/>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- THEME TOGGLE SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<div class="flex items-center justify-between">
+				<div>
+					<h1 class="text-3xl font-bold text-gray-900">
+						Theme Management
+					</h1>
+					<p class="text-gray-600 mt-2">Current theme: <span class="font-semibold">{{ currentTheme }}</span></p>
+				</div>
+				<div class="flex items-center gap-4">
+					<ThemeToggle />
+					<div class="text-sm text-gray-600">
+						Click the theme button to change themes
+					</div>
+				</div>
+			</div>
+
+			<!-- THEME EXAMPLES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Theme Examples
+				</h2>
+				<p class="text-gray-600">How different components look in various themes</p>
+
+				<div class="grid gap-6 md:grid-cols-2">
+					<div class="space-y-4">
+						<h3 class="text-lg font-medium text-gray-800">Form Controls</h3>
+						<div class="space-y-3">
+							<GInput 
+								v-model="themeExamples.input" 
+								label="Example Input" 
+								label-variant="floating" 
+								placeholder="Type something..."
+							/>
+							<GSwitch 
+								v-model="themeExamples.switch" 
+								:text="{ active: 'Enabled', inactive: 'Disabled' }"
+							/>
+							<GButton variant="primary">
+								Primary Button
+							</GButton>
+						</div>
+					</div>
+
+					<div class="space-y-4">
+						<h3 class="text-lg font-medium text-gray-800">Current Theme Info</h3>
+						<div class="p-4 border rounded-lg space-y-2">
+							<div class="flex justify-between">
+								<span class="text-sm font-medium">Theme:</span>
+								<span class="text-sm">{{ currentTheme }}</span>
+							</div>
+							<div class="flex justify-between">
+								<span class="text-sm font-medium">Dark Mode Active:</span>
+								<span class="text-sm">{{ isDarkActive ? 'Yes' : 'No' }}</span>
+							</div>
+							<div class="flex justify-between">
+								<span class="text-sm font-medium">System Preference:</span>
+								<span class="text-sm">{{ systemPreference ? 'Dark' : 'Light' }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+ import { reactive, computed } from 'vue';
+import { GSwitch } from './components/switch';
+import { GInput } from './components/input';
+import { GButton } from './components/button';
+import { ThemeToggle } from './components/theme-toggle';
+import { useTheme } from './composables/useTheme';
 
 type Variant =
 	| 'primary'
@@ -544,6 +719,54 @@ const validation = reactive({
 	email: '',
 	minLength: '',
 });
+
+// Switch examples
+const switches = reactive({
+	normal: false,
+	small: false,
+	customText: false,
+});
+
+// Settings examples
+const settings = reactive({
+	notifications: {
+		email: true,
+		push: false,
+	},
+	darkMode: false,
+	analytics: false,
+});
+
+// Theme examples
+const themeExamples = reactive({
+	input: '',
+	switch: false,
+});
+
+// Theme management
+const { theme: currentTheme, isDark: isDarkActive, setTheme } = useTheme();
+
+// System preference detection
+const systemPreference = computed(() => {
+	if (typeof window !== 'undefined' && window.matchMedia) {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches;
+	}
+	return false;
+});
+
+// Switch event handlers
+const onSwitchChange = (switchName: string, value: boolean) => {
+	console.log(`${switchName} changed to:`, value);
+};
+
+const onSettingChange = (settingName: string, value: boolean) => {
+	console.log(`Setting ${settingName} changed to:`, value);
+};
+
+const onThemeToggle = (value: boolean) => {
+	console.log('Theme toggled to:', value ? 'dark' : 'light');
+	setTheme(value ? 'dark' : 'light');
+};
 
 // Helper functions
 const isValidEmail = (email: string) => {

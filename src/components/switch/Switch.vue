@@ -1,13 +1,25 @@
 <template>
-	<div class="g-switch" :class="classes">
-		<div 
+	<div
+		class="g-switch"
+		:class="classes"
+	>
+		<div
 			class="g-switch__wrapper"
 			@click="toggleValue"
 		>
-			<div class="g-switch__track" :class="{ 'is-active': mutable }">
-				<div class="g-switch__thumb" :class="{ 'is-active': mutable }"></div>
+			<div
+				class="g-switch__track"
+				:class="{ 'is-active': mutable }"
+			>
+				<div
+					class="g-switch__thumb"
+					:class="{ 'is-active': mutable }"
+				/>
 			</div>
-			<div v-if="text" class="g-switch__label">
+			<div
+				v-if="text"
+				class="g-switch__label"
+			>
 				{{ mutable ? text.active : text.inactive }}
 			</div>
 		</div>
