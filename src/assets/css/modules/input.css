@@ -21,6 +21,8 @@
 	--g-input-label-color: var(--color-primary-key);
 	--g-input-label-color-neutral: var(--color-neutral-20);
 	--g-input-label-color-invalid: var(--color-danger-key);
+	--g-input-label-floating-bg: rgba(255, 255, 255, 0.95);
+	--g-input-label-floating-bg-fallback: white;
 	
 	/* Typography */
 	--g-input-font-size: 1rem;
@@ -114,15 +116,25 @@
 	top: 50%;
 	left: var(--g-input-padding-horizontal);
 	transform: translateY(-50%);
-	background: white;
+	background: var(--g-input-label-floating-bg);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
 	padding: 0 0.25rem;
 	margin: 0;
 	font-size: 1rem;
 	font-weight: 400;
 	color: var(--color-neutral-60);
 	pointer-events: none;
-	z-index: 1;
+	z-index: 2;
 	transition: all var(--g-input-transition-duration) ease;
+	border-radius: 2px;
+}
+
+@supports not (backdrop-filter: blur(8px)) {
+	.g-input-wrapper__label.is-floating {
+		background: var(--g-input-label-floating-bg-fallback);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+	}
 }
 
 .g-input-wrapper.is-focused .g-input-wrapper__label.is-floating,
@@ -167,6 +179,8 @@
 	display: flex;
 	align-items: center;
 }
+
+
 
 .g-input-wrapper.is-focused .g-input-wrapper__container {
 	border-color: var(--g-input-border-color-focus);
@@ -367,40 +381,31 @@
 /* ======================================================
  * Dark Mode Support
  * ====================================================== */
-/* @media (prefers-color-scheme: dark) {
-	.g-input-wrapper__container {
-		background: var(--color-neutral-20);
-		border-color: var(--color-neutral-40);
+@media (prefers-color-scheme: dark) {
+	:root {
+		--g-input-bg: var(--color-neutral-20);
+		--g-input-bg-disabled: var(--color-neutral-30);
+		--g-input-border-color: var(--color-neutral-40);
+		--g-input-text-color: var(--color-neutral-80);
+		--g-input-text-color-disabled: var(--color-neutral-60);
+		--g-input-text-color-readonly: var(--color-neutral-70);
+		--g-input-placeholder-color: var(--color-neutral-60);
+		--g-input-label-floating-bg: rgba(47, 48, 51, 0.9);
+		--g-input-label-floating-bg-fallback: var(--color-neutral-20);
 	}
+}
 
-	.g-input-wrapper__container:focus {
-		border-color: var(--color-primary-60);
-	}
-
-	.g-input-wrapper__label.is-floating {
-		background: var(--color-neutral-20);
-	}
-
-	.g-input-wrapper.is-disabled .g-input-wrapper__container {
-		background: var(--color-neutral-30);
-	}
-
-	.g-input-wrapper:read-only .g-input-wrapper__container {
-		background: var(--color-neutral-30);
-	}
-
-	.g-input__clear {
-		background: var(--color-neutral-40);
-	}
-
-	.g-input__clear:hover {
-		background: var(--color-neutral-50);
-	}
-} */
-
-/* ======================================================
- * High Contrast Mode
- * ====================================================== */
+.dark {
+	--g-input-bg: var(--color-neutral-20);
+	--g-input-bg-disabled: var(--color-neutral-30);
+	--g-input-border-color: var(--color-neutral-40);
+	--g-input-text-color: var(--color-neutral-80);
+	--g-input-text-color-disabled: var(--color-neutral-60);
+	--g-input-text-color-readonly: var(--color-neutral-70);
+	--g-input-placeholder-color: var(--color-neutral-60);
+	--g-input-label-floating-bg: rgba(47, 48, 51, 0.9);
+	--g-input-label-floating-bg-fallback: var(--color-neutral-20);
+}
 @media (prefers-contrast: high) {
 	.g-input-wrapper__container {
 		border-width: 2px;
