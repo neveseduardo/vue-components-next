@@ -31,15 +31,15 @@ export function useTheme() {
 	watch(isDark, (dark) => {
 		const root = document.documentElement;
 		if (dark) {
-			root.setAttribute('data-theme', 'dark');
+			root.classList.add('dark');
 		} else {
-			root.removeAttribute('data-theme');
+			root.classList.remove('dark');
 		}
 	}, { immediate: true });
 
 	onMounted(() => {
 		if (isDark.value) {
-			document.documentElement.setAttribute('data-theme', 'dark');
+			document.documentElement.classList.add('dark');
 		}
 	});
 

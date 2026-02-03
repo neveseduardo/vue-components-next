@@ -1,4 +1,5 @@
-@import 'tailwindcss';
+@import 'element-plus/dist/index.css';
 
+@import 'tailwindcss';
 @import './utils/variables';
 @import './modules/index.css';

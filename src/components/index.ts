@@ -19,6 +19,7 @@ import Accordion from './accordion/Accordion.vue';
 import Tooltip from './tooltip/Tooltip.vue';
 import Pagination from './pagination/Pagination.vue';
 import Input from './input/Input.vue';
+import ThemeToggle from './theme-toggle/ThemeToggle.vue';
 
 export {
 	Button,
@@ -39,6 +40,7 @@ export {
 	Tooltip,
 	Pagination,
 	Input,
+	ThemeToggle,
 };
 
 export default {
@@ -61,5 +63,6 @@ export default {
 		app.component('GTooltip', Tooltip);
 		app.component('GPagination', Pagination);
 		app.component('GInput', Input);
+		app.component('GThemeToggle', ThemeToggle);
 	},
 };

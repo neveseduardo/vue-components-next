@@ -2,80 +2,107 @@
 	<div class="space-y-12 p-6 max-w-6xl mx-auto">
 		<!-- INPUTS DOCUMENTATION -->
 		<div class="space-y-10">
-			<h1 class="text-3xl font-bold text-gray-900">
+			<h1 class="text-3xl font-bold">
 				Input Components
 			</h1>
 
 			<!-- BASIC INPUTS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Basic Inputs
 				</h2>
-				<p class="text-gray-600">Different input types and basic functionality</p>
+				<p>
+					Different input types and basic functionality
+				</p>
 
 				<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Text Input</label>
-						<GInput v-model="values.text" placeholder="Enter text" />
+						<label class="block text-sm font-medium">Text Input</label>
+						<GInput
+							v-model="values.text"
+							placeholder="Enter text"
+						/>
 					</div>
 
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Email Input</label>
-						<GInput v-model="values.email" type="email" placeholder="email@example.com" />
+						<label class="block text-sm font-medium">Email Input</label>
+						<GInput
+							v-model="values.email"
+							type="email"
+							placeholder="email@example.com"
+						/>
 					</div>
 
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Password Input</label>
-						<GInput v-model="values.password" type="password" placeholder="Enter password" />
+						<label class="block text-sm font-medium">Password Input</label>
+						<GInput
+							v-model="values.password"
+							type="password"
+							placeholder="Enter password"
+						/>
 					</div>
 
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Number Input</label>
-						<GInput v-model="values.number" type="number" placeholder="0" />
+						<label class="block text-sm font-medium">Number Input</label>
+						<GInput
+							v-model="values.number"
+							type="number"
+							placeholder="0"
+						/>
 					</div>
 
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Search Input</label>
-						<GInput v-model="values.search" type="search" placeholder="Search..." />
+						<label class="block text-sm font-medium">Search Input</label>
+						<GInput
+							v-model="values.search"
+							type="search"
+							placeholder="Search..."
+						/>
 					</div>
 
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Clearable Input</label>
-						<GInput v-model="values.clearable" clearable placeholder="Type to clear" />
+						<label class="block text-sm font-medium">Clearable Input</label>
+						<GInput
+							v-model="values.clearable"
+							clearable
+							placeholder="Type to clear"
+						/>
 					</div>
 				</div>
 			</section>
 
 			<!-- LABEL VARIANTS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Label Variants
 				</h2>
-				<p class="text-gray-600">Different label positioning and behavior</p>
+				<p>
+					Different label positioning and behavior
+				</p>
 
 				<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 					<div class="space-y-2">
-						<GInput 
-							v-model="labels.floating" 
-							label="Floating Label" 
-							label-variant="floating" 
+						<GInput
+							v-model="labels.floating"
+							label="Floating Label"
+							label-variant="floating"
 							placeholder="Type here..."
 						/>
 					</div>
 
 					<div class="space-y-2">
-						<GInput 
-							v-model="labels.static" 
-							label="Static Label" 
-							label-variant="static" 
+						<GInput
+							v-model="labels.static"
+							label="Static Label"
+							label-variant="static"
 						/>
 					</div>
 
 					<div class="space-y-2">
-						<GInput 
-							v-model="labels.placeholder" 
-							label="Placeholder Style" 
-							label-variant="placeholder" 
+						<GInput
+							v-model="labels.placeholder"
+							label="Placeholder Style"
+							label-variant="placeholder"
 							placeholder="This is a placeholder"
 						/>
 					</div>
@@ -84,28 +111,32 @@
 
 			<!-- COLOR VARIANTS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Color Variants
 				</h2>
-				<p class="text-gray-600">Default and neutral color variants</p>
+				<p>
+					Default and neutral color variants
+				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
 						<div>
-							<h3 class="text-sm font-medium text-gray-700 mb-3">Default Variant</h3>
-							<GInput 
-								v-model="colorVariants.defaultNormal" 
-								label="Default Normal" 
-								label-variant="floating" 
+							<h3 class="text-sm font-medium mb-3">
+								Default Variant
+							</h3>
+							<GInput
+								v-model="colorVariants.defaultNormal"
+								label="Default Normal"
+								label-variant="floating"
 								placeholder="Primary colors"
 								variant="default"
 							/>
 						</div>
-						
-						<GInput 
-							v-model="colorVariants.defaultInvalid" 
-							label="Default Invalid" 
-							label-variant="floating" 
+
+						<GInput
+							v-model="colorVariants.defaultInvalid"
+							label="Default Invalid"
+							label-variant="floating"
 							placeholder="Shows red border and label"
 							variant="default"
 							:invalid="true"
@@ -114,20 +145,22 @@
 
 					<div class="space-y-4">
 						<div>
-							<h3 class="text-sm font-medium text-gray-700 mb-3">Neutral Variant</h3>
-							<GInput 
-								v-model="colorVariants.neutralNormal" 
-								label="Neutral Normal" 
-								label-variant="floating" 
+							<h3 class="text-sm font-medium mb-3">
+								Neutral Variant
+							</h3>
+							<GInput
+								v-model="colorVariants.neutralNormal"
+								label="Neutral Normal"
+								label-variant="floating"
 								placeholder="Neutral colors"
 								variant="neutral"
 							/>
 						</div>
-						
-						<GInput 
-							v-model="colorVariants.neutralInvalid" 
-							label="Neutral Invalid" 
-							label-variant="floating" 
+
+						<GInput
+							v-model="colorVariants.neutralInvalid"
+							label="Neutral Invalid"
+							label-variant="floating"
 							placeholder="Shows red border and label"
 							variant="neutral"
 							:invalid="true"
@@ -138,40 +171,48 @@
 
 			<!-- SIZES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Input Sizes
 				</h2>
-				<p class="text-gray-600">Small, medium, and large variants</p>
+				<p>
+					Small, medium, and large variants
+				</p>
 
 				<div class="space-y-4">
 					<div class="flex items-center gap-4">
-						<div class="w-16 text-sm font-medium">Small:</div>
-						<GInput 
-							size="sm" 
-							label="Small input" 
-							label-variant="floating" 
+						<div class="w-16 text-sm font-medium">
+							Small:
+						</div>
+						<GInput
+							size="sm"
+							label="Small input"
+							label-variant="floating"
 							placeholder="Small size"
 							class="max-w-xs"
 						/>
 					</div>
 
 					<div class="flex items-center gap-4">
-						<div class="w-16 text-sm font-medium">Medium:</div>
-						<GInput 
-							size="md" 
-							label="Medium input" 
-							label-variant="floating" 
+						<div class="w-16 text-sm font-medium">
+							Medium:
+						</div>
+						<GInput
+							size="md"
+							label="Medium input"
+							label-variant="floating"
 							placeholder="Medium size"
 							class="max-w-xs"
 						/>
 					</div>
 
 					<div class="flex items-center gap-4">
-						<div class="w-16 text-sm font-medium">Large:</div>
-						<GInput 
-							size="lg" 
-							label="Large input" 
-							label-variant="floating" 
+						<div class="w-16 text-sm font-medium">
+							Large:
+						</div>
+						<GInput
+							size="lg"
+							label="Large input"
+							label-variant="floating"
 							placeholder="Large size"
 							class="max-w-xs"
 						/>
@@ -181,54 +222,56 @@
 
 			<!-- STATES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Input States
 				</h2>
-				<p class="text-gray-600">Disabled, loading, invalid, and read-only states</p>
+				<p>
+					Disabled, loading, invalid, and read-only states
+				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
-						<GInput 
-							v-model="states.normal" 
-							label="Normal State" 
+						<GInput
+							v-model="states.normal"
+							label="Normal State"
 							label-variant="floating"
 						/>
-						
-						<GInput 
-							:disabled="true" 
-							label="Disabled State" 
+
+						<GInput
+							:disabled="true"
+							label="Disabled State"
 							label-variant="floating"
 							value="This is disabled"
 						/>
 
-						<GInput 
-							:readonly="true" 
-							label="Read Only State" 
+						<GInput
+							:readonly="true"
+							label="Read Only State"
 							label-variant="floating"
 							value="This is read only"
 						/>
 					</div>
 
 					<div class="space-y-4">
-						<GInput 
-							v-model="states.invalid" 
-							label="Invalid State" 
+						<GInput
+							v-model="states.invalid"
+							label="Invalid State"
 							label-variant="floating"
 							:invalid="true"
 							placeholder="This field is invalid"
 						/>
 
-						<GInput 
-							v-model="states.loading" 
-							label="Loading State" 
+						<GInput
+							v-model="states.loading"
+							label="Loading State"
 							label-variant="floating"
 							:loading="true"
 							placeholder="Loading..."
 						/>
 
-						<GInput 
-							v-model="states.required" 
-							label="Required Field" 
+						<GInput
+							v-model="states.required"
+							label="Required Field"
 							label-variant="floating"
 							placeholder="This field is required"
 							:required="true"
@@ -239,56 +282,64 @@
 
 			<!-- WITH ICONS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Inputs with Icons
 				</h2>
-				<p class="text-gray-600">Left and right icon slots</p>
+				<p>
+					Left and right icon slots
+				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
-						<GInput 
-							v-model="icons.left" 
-							label="Search with icon" 
+						<GInput
+							v-model="icons.left"
+							label="Search with icon"
 							label-variant="floating"
 							placeholder="Search..."
 						>
 							<template #left>
-								<GIcon icon="ic:baseline-search" class="text-gray-400" />
+								<GIcon
+									icon="ic:baseline-search"
+								/>
 							</template>
 						</GInput>
 
-						<GInput 
-							v-model="icons.email" 
-							label="Email with icon" 
+						<GInput
+							v-model="icons.email"
+							label="Email with icon"
 							label-variant="floating"
 							placeholder="email@example.com"
 						>
 							<template #left>
-								<GIcon icon="ic:baseline-email" class="text-gray-400" />
+								<GIcon
+									icon="ic:baseline-email"
+								/>
 							</template>
 						</GInput>
 					</div>
 
 					<div class="space-y-4">
-						<GInput 
-							v-model="icons.currency" 
-							label="Currency" 
+						<GInput
+							v-model="icons.currency"
+							label="Currency"
 							label-variant="floating"
 							placeholder="0.00"
 						>
 							<template #left>
-								<span class="text-gray-500">$</span>
+								<span>$</span>
 							</template>
 						</GInput>
 
-						<GInput 
-							v-model="icons.website" 
-							label="Website" 
+						<GInput
+							v-model="icons.website"
+							label="Website"
 							label-variant="floating"
 							placeholder="https://example.com"
 						>
 							<template #right>
-								<GIcon icon="ic:baseline-language" class="text-gray-400" />
+								<GIcon
+									icon="ic:baseline-language"
+								/>
 							</template>
 						</GInput>
 					</div>
@@ -297,24 +348,26 @@
 
 			<!-- VALIDATION EXAMPLES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Validation Examples
 				</h2>
-				<p class="text-gray-600">Common validation patterns</p>
+				<p>
+					Common validation patterns
+				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
-					<GInput 
-						v-model="validation.email" 
-						label="Email (invalid when not proper format)" 
+					<GInput
+						v-model="validation.email"
+						label="Email (invalid when not proper format)"
 						label-variant="floating"
 						type="email"
 						placeholder="email@example.com"
 						:invalid="!isValidEmail(validation.email) && validation.email !== ''"
 					/>
 
-					<GInput 
-						v-model="validation.minLength" 
-						label="Min 8 characters" 
+					<GInput
+						v-model="validation.minLength"
+						label="Min 8 characters"
 						label-variant="floating"
 						placeholder="At least 8 chars"
 						:invalid="validation.minLength.length < 8 && validation.minLength !== ''"
@@ -326,13 +379,13 @@
 
 		<!-- BUTTONS SECTION -->
 		<div class="space-y-10 border-t pt-10">
-			<h1 class="text-3xl font-bold text-gray-900">
+			<h1 class="text-3xl font-bold">
 				Button Components
 			</h1>
 
 			<!-- SOLID -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Solid
 				</h2>
 
@@ -350,7 +403,7 @@
 
 			<!-- OUTLINED -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Outlined
 				</h2>
 
@@ -368,7 +421,7 @@
 
 			<!-- SIZES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Sizes
 				</h2>
 
@@ -410,7 +463,7 @@
 
 			<!-- STATES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					States
 				</h2>
 
@@ -469,21 +522,23 @@
 				<h2 class="text-xl font-semibold text-gray-800">
 					Basic Switches
 				</h2>
-				<p class="text-gray-600">Different switch states and configurations</p>
+				<p class="text-gray-600">
+					Different switch states and configurations
+				</p>
 
 				<div class="flex flex-wrap gap-6">
 					<div class="space-y-2">
 						<label class="block text-sm font-medium text-gray-700">Normal Switch</label>
-						<GSwitch 
-							v-model="switches.normal" 
+						<GSwitch
+							v-model="switches.normal"
 							@change="onSwitchChange('normal', $event)"
 						/>
 					</div>
 
 					<div class="space-y-2">
 						<label class="block text-sm font-medium text-gray-700">Small Switch</label>
-						<GSwitch 
-							v-model="switches.small" 
+						<GSwitch
+							v-model="switches.small"
 							small
 							@change="onSwitchChange('small', $event)"
 						/>
@@ -491,7 +546,7 @@
 
 					<div class="space-y-2">
 						<label class="block text-sm font-medium text-gray-700">Disabled Switch</label>
-						<GSwitch 
+						<GSwitch
 							:model-value="false"
 							disabled
 						/>
@@ -499,8 +554,8 @@
 
 					<div class="space-y-2">
 						<label class="block text-sm font-medium text-gray-700">Custom Text</label>
-						<GSwitch 
-							v-model="switches.customText" 
+						<GSwitch
+							v-model="switches.customText"
 							:text="{ active: 'On', inactive: 'Off' }"
 							@change="onSwitchChange('customText', $event)"
 						/>
@@ -513,49 +568,67 @@
 				<h2 class="text-xl font-semibold text-gray-800">
 					Switch Groups
 				</h2>
-				<p class="text-gray-600">Multiple switches for settings</p>
+				<p class="text-gray-600">
+					Multiple switches for settings
+				</p>
 
 				<div class="space-y-4">
 					<div class="flex items-center justify-between p-4 border rounded-lg">
 						<div>
-							<h3 class="font-medium text-gray-900">Email Notifications</h3>
-							<p class="text-sm text-gray-600">Receive email updates about your account</p>
+							<h3 class="font-medium text-gray-900">
+								Email Notifications
+							</h3>
+							<p class="text-sm text-gray-600">
+								Receive email updates about your account
+							</p>
 						</div>
-						<GSwitch 
-							v-model="settings.notifications.email" 
+						<GSwitch
+							v-model="settings.notifications.email"
 							@change="onSettingChange('email', $event)"
 						/>
 					</div>
 
 					<div class="flex items-center justify-between p-4 border rounded-lg">
 						<div>
-							<h3 class="font-medium text-gray-900">Push Notifications</h3>
-							<p class="text-sm text-gray-600">Receive push notifications on your device</p>
+							<h3 class="font-medium text-gray-900">
+								Push Notifications
+							</h3>
+							<p class="text-sm text-gray-600">
+								Receive push notifications on your device
+							</p>
 						</div>
-						<GSwitch 
-							v-model="settings.notifications.push" 
+						<GSwitch
+							v-model="settings.notifications.push"
 							@change="onSettingChange('push', $event)"
 						/>
 					</div>
 
 					<div class="flex items-center justify-between p-4 border rounded-lg">
 						<div>
-							<h3 class="font-medium text-gray-900">Dark Mode</h3>
-							<p class="text-sm text-gray-600">Use dark theme across the application</p>
+							<h3 class="font-medium text-gray-900">
+								Dark Mode
+							</h3>
+							<p class="text-sm text-gray-600">
+								Use dark theme across the application
+							</p>
 						</div>
-						<GSwitch 
-							v-model="settings.darkMode" 
+						<GSwitch
+							v-model="settings.darkMode"
 							@change="onThemeToggle($event)"
 						/>
 					</div>
 
 					<div class="flex items-center justify-between p-4 border rounded-lg">
 						<div>
-							<h3 class="font-medium text-gray-900">Analytics</h3>
-							<p class="text-sm text-gray-600">Help us improve by sharing usage data</p>
+							<h3 class="font-medium text-gray-900">
+								Analytics
+							</h3>
+							<p class="text-sm text-gray-600">
+								Help us improve by sharing usage data
+							</p>
 						</div>
-						<GSwitch 
-							v-model="settings.analytics" 
+						<GSwitch
+							v-model="settings.analytics"
 							@change="onSettingChange('analytics', $event)"
 						/>
 					</div>
@@ -570,10 +643,12 @@
 					<h1 class="text-3xl font-bold text-gray-900">
 						Theme Management
 					</h1>
-					<p class="text-gray-600 mt-2">Current theme: <span class="font-semibold">{{ currentTheme }}</span></p>
+					<p class="text-gray-600 mt-2">
+						Current theme: <span class="font-semibold">{{ currentTheme }}</span>
+					</p>
 				</div>
 				<div class="flex items-center gap-4">
-					<ThemeToggle />
+					<GThemeToggle />
 					<div class="text-sm text-gray-600">
 						Click the theme button to change themes
 					</div>
@@ -585,20 +660,24 @@
 				<h2 class="text-xl font-semibold text-gray-800">
 					Theme Examples
 				</h2>
-				<p class="text-gray-600">How different components look in various themes</p>
+				<p class="text-gray-600">
+					How different components look in various themes
+				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
-						<h3 class="text-lg font-medium text-gray-800">Form Controls</h3>
+						<h3 class="text-lg font-medium text-gray-800">
+							Form Controls
+						</h3>
 						<div class="space-y-3">
-							<GInput 
-								v-model="themeExamples.input" 
-								label="Example Input" 
-								label-variant="floating" 
+							<GInput
+								v-model="themeExamples.input"
+								label="Example Input"
+								label-variant="floating"
 								placeholder="Type something..."
 							/>
-							<GSwitch 
-								v-model="themeExamples.switch" 
+							<GSwitch
+								v-model="themeExamples.switch"
 								:text="{ active: 'Enabled', inactive: 'Disabled' }"
 							/>
 							<GButton variant="primary">
@@ -608,7 +687,9 @@
 					</div>
 
 					<div class="space-y-4">
-						<h3 class="text-lg font-medium text-gray-800">Current Theme Info</h3>
+						<h3 class="text-lg font-medium text-gray-800">
+							Current Theme Info
+						</h3>
 						<div class="p-4 border rounded-lg space-y-2">
 							<div class="flex justify-between">
 								<span class="text-sm font-medium">Theme:</span>
@@ -631,11 +712,7 @@
 </template>
 
 <script setup lang="ts">
- import { reactive, computed } from 'vue';
-import { GSwitch } from './components/switch';
-import { GInput } from './components/input';
-import { GButton } from './components/button';
-import { ThemeToggle } from './components/theme-toggle';
+import { reactive, computed } from 'vue';
 import { useTheme } from './composables/useTheme';
 
 type Variant =
