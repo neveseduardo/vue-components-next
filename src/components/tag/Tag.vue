@@ -1,5 +1,8 @@
 <template>
-	<div class="g-tag" :class="classes">
+	<div
+		class="g-tag"
+		:class="classes"
+	>
 		<ElTag
 			class="g-tag__element"
 			:size="tagSize"

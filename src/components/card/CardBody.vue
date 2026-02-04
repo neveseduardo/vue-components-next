@@ -1,7 +1,15 @@
 <template>
-	<div class="g-card__body" :class="classes">
+	<div
+		class="g-card__body"
+		:class="classes"
+	>
 		<slot>
-			<p v-if="text" class="g-card__description">{{ text }}</p>
+			<p
+				v-if="text"
+				class="g-card__description"
+			>
+				{{ text }}
+			</p>
 		</slot>
 	</div>
 </template>

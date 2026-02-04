@@ -1,5 +1,8 @@
 <template>
-	<div class="g-autocomplete" :class="classes">
+	<div
+		class="g-autocomplete"
+		:class="classes"
+	>
 		<ElAutocomplete
 			:id="autocompleteId"
 			ref="input"
@@ -78,14 +81,14 @@ const autocompleteId = computed(() => attrs.id as string || `autocomplete-${Math
 
 const mutableValue = computed({
 	get(): string {
-const classes = computed(() => ({
-	'is-disabled': props.disabled,
-	'is-invalid': props.invalid,
-	'is-loading': props.loading,
-	[`g-autocomplete--${props.labelVariant}`]: props.label,
-}));
+		const classes = computed(() => ({
+			'is-disabled': props.disabled,
+			'is-invalid': props.invalid,
+			'is-loading': props.loading,
+			[`g-autocomplete--${props.labelVariant}`]: props.label,
+		}));
 
-focused.value = !isEmpty(props.modelValue);
+		focused.value = !isEmpty(props.modelValue);
 		return props.modelValue || '';
 	},
 	set(value: string) {

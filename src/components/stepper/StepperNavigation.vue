@@ -1,7 +1,7 @@
 <template>
 	<div class="g-stepper-navigation">
 		<div class="g-stepper-navigation-button">
-			<g-button
+			<GButton
 				type="secondary"
 				outlined
 				:disabled="isFirstStep || disabled"
@@ -9,10 +9,10 @@
 				@click="previousStep"
 			>
 				Voltar
-			</g-button>
+			</GButton>
 		</div>
 		<div class="g-stepper-navigation-button">
-			<g-button
+			<GButton
 				v-if="!isLastStep"
 				type="primary"
 				icon="arrow_forward"
@@ -21,9 +21,9 @@
 				@click="nextStep"
 			>
 				Próximo
-			</g-button>
+			</GButton>
 
-			<g-button
+			<GButton
 				v-else
 				type="success"
 				icon="check"
@@ -31,7 +31,7 @@
 				@click="complete"
 			>
 				Finalizar
-			</g-button>
+			</GButton>
 		</div>
 	</div>
 </template>

@@ -198,7 +198,7 @@ const setStepError = (stepId: string, hasError: boolean) => {
 
 const emitBeforeNext = async (): Promise<boolean> => {
 	const result = emit('before-next', currentStep.value);
-	
+
 	if (result instanceof Promise) {
 		try {
 			const resolved = await result;
@@ -208,7 +208,7 @@ const emitBeforeNext = async (): Promise<boolean> => {
 			return false;
 		}
 	}
-	
+
 	return result !== false;
 };
 

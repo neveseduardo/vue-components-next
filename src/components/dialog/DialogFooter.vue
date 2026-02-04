@@ -1,5 +1,8 @@
 <template>
-	<div class="g-dialog__footer" :class="classes">
+	<div
+		class="g-dialog__footer"
+		:class="classes"
+	>
 		<slot />
 	</div>
 </template>

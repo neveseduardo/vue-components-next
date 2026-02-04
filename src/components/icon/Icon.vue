@@ -1,5 +1,8 @@
 <template>
-	<i class="g-icon" :class="classes">
+	<i
+		class="g-icon"
+		:class="classes"
+	>
 		<Icon
 			:width="size"
 			:height="size"

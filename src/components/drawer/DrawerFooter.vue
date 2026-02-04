@@ -1,5 +1,8 @@
 <template>
-	<div class="g-drawer__footer" :class="classes">
+	<div
+		class="g-drawer__footer"
+		:class="classes"
+	>
 		<slot />
 	</div>
 </template>

@@ -6,7 +6,10 @@
 		type="button"
 		@click="onClick"
 	>
-		<GIcon icon="mdi:close" class="g-dialog__close-icon" />
+		<GIcon
+			icon="mdi:close"
+			class="g-dialog__close-icon"
+		/>
 	</button>
 </template>
 

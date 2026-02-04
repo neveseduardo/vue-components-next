@@ -1,8 +1,21 @@
 <template>
-	<div class="g-card__header" :class="classes">
+	<div
+		class="g-card__header"
+		:class="classes"
+	>
 		<slot>
-			<h2 v-if="title" class="g-card__title">{{ title }}</h2>
-			<p v-if="subtitle" class="g-card__subtitle">{{ subtitle }}</p>
+			<h2
+				v-if="title"
+				class="g-card__title"
+			>
+				{{ title }}
+			</h2>
+			<p
+				v-if="subtitle"
+				class="g-card__subtitle"
+			>
+				{{ subtitle }}
+			</p>
 		</slot>
 	</div>
 </template>

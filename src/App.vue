@@ -494,7 +494,7 @@
 
 			<!-- ICON ONLY -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Icon only
 				</h2>
 
@@ -513,22 +513,22 @@
 
 		<!-- SWITCH SECTION -->
 		<div class="space-y-10 border-t pt-10">
-			<h1 class="text-3xl font-bold text-gray-900">
+			<h1 class="text-3xl font-bold">
 				Switch Components
 			</h1>
 
 			<!-- BASIC SWITCHES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Basic Switches
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Different switch states and configurations
 				</p>
 
 				<div class="flex flex-wrap gap-6">
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Normal Switch</label>
+						<label class="block text-sm font-medium">Normal Switch</label>
 						<GSwitch
 							v-model="switches.normal"
 							@change="onSwitchChange('normal', $event)"
@@ -536,7 +536,7 @@
 					</div>
 
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Small Switch</label>
+						<label class="block text-sm font-medium">Small Switch</label>
 						<GSwitch
 							v-model="switches.small"
 							small
@@ -545,7 +545,7 @@
 					</div>
 
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Disabled Switch</label>
+						<label class="block text-sm font-medium">Disabled Switch</label>
 						<GSwitch
 							:model-value="false"
 							disabled
@@ -553,7 +553,7 @@
 					</div>
 
 					<div class="space-y-2">
-						<label class="block text-sm font-medium text-gray-700">Custom Text</label>
+						<label class="block text-sm font-medium">Custom Text</label>
 						<GSwitch
 							v-model="switches.customText"
 							:text="{ active: 'On', inactive: 'Off' }"
@@ -565,20 +565,20 @@
 
 			<!-- SWITCH GROUPS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Switch Groups
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Multiple switches for settings
 				</p>
 
 				<div class="space-y-4">
 					<div class="flex items-center justify-between p-4 border rounded-lg">
 						<div>
-							<h3 class="font-medium text-gray-900">
+							<h3 class="font-medium">
 								Email Notifications
 							</h3>
-							<p class="text-sm text-gray-600">
+							<p class="text-sm">
 								Receive email updates about your account
 							</p>
 						</div>
@@ -590,10 +590,10 @@
 
 					<div class="flex items-center justify-between p-4 border rounded-lg">
 						<div>
-							<h3 class="font-medium text-gray-900">
+							<h3 class="font-medium">
 								Push Notifications
 							</h3>
-							<p class="text-sm text-gray-600">
+							<p class="text-sm">
 								Receive push notifications on your device
 							</p>
 						</div>
@@ -605,10 +605,10 @@
 
 					<div class="flex items-center justify-between p-4 border rounded-lg">
 						<div>
-							<h3 class="font-medium text-gray-900">
+							<h3 class="font-medium">
 								Dark Mode
 							</h3>
-							<p class="text-sm text-gray-600">
+							<p class="text-sm">
 								Use dark theme across the application
 							</p>
 						</div>
@@ -620,10 +620,10 @@
 
 					<div class="flex items-center justify-between p-4 border rounded-lg">
 						<div>
-							<h3 class="font-medium text-gray-900">
+							<h3 class="font-medium">
 								Analytics
 							</h3>
-							<p class="text-sm text-gray-600">
+							<p class="text-sm">
 								Help us improve by sharing usage data
 							</p>
 						</div>
@@ -638,16 +638,16 @@
 
 		<!-- CARDS SECTION -->
 		<div class="space-y-10 border-t pt-10">
-			<h1 class="text-3xl font-bold text-gray-900">
+			<h1 class="text-3xl font-bold">
 				Card Components
 			</h1>
 
 			<!-- BASIC CARDS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Basic Cards
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Different card variants and basic functionality
 				</p>
 
@@ -660,8 +660,18 @@
 						<CardBody text="This is a default card with header and body." />
 						<CardFooter>
 							<div class="g-card__actions">
-								<GButton size="sm" appearance="outlined">Cancel</GButton>
-								<GButton size="sm" variant="primary">Save</GButton>
+								<GButton
+									size="sm"
+									appearance="outlined"
+								>
+									Cancel
+								</GButton>
+								<GButton
+									size="sm"
+									variant="primary"
+								>
+									Save
+								</GButton>
 							</div>
 						</CardFooter>
 					</Card>
@@ -690,7 +700,10 @@
 						<CardBody text="This card has flat appearance with minimal shadow." />
 					</Card>
 
-					<Card clickable @click="onCardClick('clickable')">
+					<Card
+						clickable
+						@click="onCardClick('clickable')"
+					>
 						<CardHeader
 							title="Clickable Card"
 							subtitle="Click to interact"
@@ -700,15 +713,19 @@
 
 					<Card>
 						<CardBody>
-							<h3 class="g-card__title">Custom Content</h3>
-							<p class="g-card__description">Cards can contain completely custom content without predefined structure.</p>
+							<h3 class="g-card__title">
+								Custom Content
+							</h3>
+							<p class="g-card__description">
+								Cards can contain completely custom content without predefined structure.
+							</p>
 							<div class="mt-4 space-y-2">
 								<div class="flex items-center gap-2">
-									<div class="w-2 h-2 rounded-full bg-green-500"></div>
+									<div class="w-2 h-2 rounded-full bg-green-500" />
 									<span class="text-sm">Status: Active</span>
 								</div>
 								<div class="flex items-center gap-2">
-									<div class="w-2 h-2 rounded-full bg-blue-500"></div>
+									<div class="w-2 h-2 rounded-full bg-blue-500" />
 									<span class="text-sm">Priority: High</span>
 								</div>
 							</div>
@@ -719,10 +736,10 @@
 
 			<!-- COMPACT CARDS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Compact Cards
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Cards with reduced padding for space-efficient layouts
 				</p>
 
@@ -733,9 +750,17 @@
 							title="Compact Header"
 							subtitle="Reduced padding"
 						/>
-						<CardBody compact text="Compact card body with less vertical spacing." />
+						<CardBody
+							compact
+							text="Compact card body with less vertical spacing."
+						/>
 						<CardFooter compact>
-							<GButton size="sm" variant="primary">Action</GButton>
+							<GButton
+								size="sm"
+								variant="primary"
+							>
+								Action
+							</GButton>
 						</CardFooter>
 					</Card>
 
@@ -743,10 +768,14 @@
 						<CardBody compact>
 							<div class="flex items-center justify-between">
 								<div>
-									<h4 class="g-card__title">Quick Stats</h4>
-									<p class="g-card__subtitle">User metrics</p>
+									<h4 class="g-card__title">
+										Quick Stats
+									</h4>
+									<p class="g-card__subtitle">
+										User metrics
+									</p>
 								</div>
-								<div class="text-2xl font-bold text-primary-key">
+								<div class="text-2xl font-bold">
 									{{ cardStats.users }}
 								</div>
 							</div>
@@ -761,10 +790,10 @@
 									<span class="text-sm">{{ cardStats.progress }}%</span>
 								</div>
 								<div class="w-full bg-neutral-90 rounded-full h-2">
-									<div 
+									<div
 										class="bg-primary-key h-2 rounded-full transition-all"
 										:style="`width: ${cardStats.progress}%`"
-									></div>
+									/>
 								</div>
 							</div>
 						</CardBody>
@@ -774,22 +803,29 @@
 
 			<!-- INTERACTIVE CARDS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Interactive Cards
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Cards with interactive elements and dynamic content
 				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
-					<Card clickable @click="toggleFavorite">
+					<Card
+						clickable
+						@click="toggleFavorite"
+					>
 						<CardHeader>
 							<div class="flex items-start justify-between">
 								<div>
-									<h3 class="g-card__title">Favorite Toggle</h3>
-									<p class="g-card__subtitle">Click to toggle favorite status</p>
+									<h3 class="g-card__title">
+										Favorite Toggle
+									</h3>
+									<p class="g-card__subtitle">
+										Click to toggle favorite status
+									</p>
 								</div>
-								<div 
+								<div
 									class="text-2xl transition-colors"
 									:class="cardInteractive.isFavorite ? 'text-warning-key' : 'text-neutral-60'"
 								>
@@ -830,9 +866,14 @@
 						</CardBody>
 						<CardFooter>
 							<div class="g-card__actions">
-								<GButton size="sm" appearance="outlined">Clear</GButton>
-								<GButton 
-									size="sm" 
+								<GButton
+									size="sm"
+									appearance="outlined"
+								>
+									Clear
+								</GButton>
+								<GButton
+									size="sm"
 									variant="primary"
 									@click="submitCardForm"
 								>
@@ -846,10 +887,10 @@
 
 			<!-- CARD LAYOUTS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Card Layouts
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Different layout patterns and compositions
 				</p>
 
@@ -877,8 +918,12 @@
 						<Card variant="flat">
 							<CardBody compact>
 								<div class="text-center">
-									<div class="text-2xl font-bold text-primary-key">{{ cardLayoutStats.total }}</div>
-									<div class="text-sm text-neutral-60">Total Users</div>
+									<div class="text-2xl font-bold text-primary-key">
+										{{ cardLayoutStats.total }}
+									</div>
+									<div class="text-sm text-neutral-60">
+										Total Users
+									</div>
 								</div>
 							</CardBody>
 						</Card>
@@ -886,8 +931,12 @@
 						<Card variant="flat">
 							<CardBody compact>
 								<div class="text-center">
-									<div class="text-2xl font-bold text-success-key">{{ cardLayoutStats.active }}</div>
-									<div class="text-sm text-neutral-60">Active</div>
+									<div class="text-2xl font-bold text-success-key">
+										{{ cardLayoutStats.active }}
+									</div>
+									<div class="text-sm text-neutral-60">
+										Active
+									</div>
 								</div>
 							</CardBody>
 						</Card>
@@ -895,8 +944,12 @@
 						<Card variant="flat">
 							<CardBody compact>
 								<div class="text-center">
-									<div class="text-2xl font-bold text-warning-key">{{ cardLayoutStats.pending }}</div>
-									<div class="text-sm text-neutral-60">Pending</div>
+									<div class="text-2xl font-bold text-warning-key">
+										{{ cardLayoutStats.pending }}
+									</div>
+									<div class="text-sm text-neutral-60">
+										Pending
+									</div>
 								</div>
 							</CardBody>
 						</Card>
@@ -904,8 +957,12 @@
 						<Card variant="flat">
 							<CardBody compact>
 								<div class="text-center">
-									<div class="text-2xl font-bold text-danger-key">{{ cardLayoutStats.inactive }}</div>
-									<div class="text-sm text-neutral-60">Inactive</div>
+									<div class="text-2xl font-bold text-danger-key">
+										{{ cardLayoutStats.inactive }}
+									</div>
+									<div class="text-sm text-neutral-60">
+										Inactive
+									</div>
 								</div>
 							</CardBody>
 						</Card>
@@ -916,22 +973,24 @@
 
 		<!-- RADIO SECTION -->
 		<div class="space-y-10 border-t pt-10">
-			<h1 class="text-3xl font-bold text-gray-900">
+			<h1 class="text-3xl font-bold">
 				Radio Components
 			</h1>
 
 			<!-- BASIC RADIOS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Basic Radios
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Different radio button configurations and states
 				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
-						<h3 class="font-medium text-gray-700">Basic Radio Group</h3>
+						<h3 class="font-medium">
+							Basic Radio Group
+						</h3>
 						<div class="space-y-2">
 							<GRadio
 								v-model="radios.basic"
@@ -949,13 +1008,15 @@
 								value="option3"
 							/>
 						</div>
-						<p class="text-sm text-gray-600">
+						<p class="text-sm">
 							Selected: {{ radios.basic }}
 						</p>
 					</div>
 
 					<div class="space-y-4">
-						<h3 class="font-medium text-gray-700">Border Radio Group</h3>
+						<h3 class="font-medium">
+							Border Radio Group
+						</h3>
 						<div class="space-y-2">
 							<GRadio
 								v-model="radios.border"
@@ -976,7 +1037,7 @@
 								:border="true"
 							/>
 						</div>
-						<p class="text-sm text-gray-600">
+						<p class="text-sm">
 							Selected: {{ radios.border }}
 						</p>
 					</div>
@@ -985,16 +1046,18 @@
 
 			<!-- RADIO STATES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Radio States
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Disabled and invalid states
 				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
-						<h3 class="font-medium text-gray-700">Disabled Radios</h3>
+						<h3 class="font-medium">
+							Disabled Radios
+						</h3>
 						<div class="space-y-2">
 							<GRadio
 								v-model="radios.disabled"
@@ -1012,7 +1075,9 @@
 					</div>
 
 					<div class="space-y-4">
-						<h3 class="font-medium text-gray-700">Invalid Radios</h3>
+						<h3 class="font-medium">
+							Invalid Radios
+						</h3>
 						<div class="space-y-2">
 							<GRadio
 								v-model="radios.invalid"
@@ -1034,34 +1099,47 @@
 
 		<!-- CHECKBOX SECTION -->
 		<div class="space-y-10 border-t pt-10">
-			<h1 class="text-3xl font-bold text-gray-900">
+			<h1 class="text-3xl font-bold">
 				Checkbox Components
 			</h1>
 
 			<!-- BASIC CHECKBOXES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Basic Checkboxes
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Different checkbox configurations and states
 				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
-						<h3 class="font-medium text-gray-700">Basic Checkboxes</h3>
+						<h3 class="font-medium">
+							Basic Checkboxes
+						</h3>
 						<div class="space-y-2">
-							<GCheckbox v-model="checkboxes.basic1" label="Option 1" />
-							<GCheckbox v-model="checkboxes.basic2" label="Option 2" />
-							<GCheckbox v-model="checkboxes.basic3" label="Option 3" />
+							<GCheckbox
+								v-model="checkboxes.basic1"
+								label="Option 1"
+							/>
+							<GCheckbox
+								v-model="checkboxes.basic2"
+								label="Option 2"
+							/>
+							<GCheckbox
+								v-model="checkboxes.basic3"
+								label="Option 3"
+							/>
 						</div>
-						<p class="text-sm text-gray-600">
+						<p class="text-sm">
 							States: {{ checkboxes.basic1 }}, {{ checkboxes.basic2 }}, {{ checkboxes.basic3 }}
 						</p>
 					</div>
 
 					<div class="space-y-4">
-						<h3 class="font-medium text-gray-700">Border Checkboxes</h3>
+						<h3 class="font-medium">
+							Border Checkboxes
+						</h3>
 						<div class="space-y-2">
 							<GCheckbox
 								v-model="checkboxes.border1"
@@ -1085,16 +1163,18 @@
 
 			<!-- CHECKBOX STATES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Checkbox States
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Disabled, checked, and invalid states
 				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
-						<h3 class="font-medium text-gray-700">State Examples</h3>
+						<h3 class="font-medium">
+							State Examples
+						</h3>
 						<div class="space-y-2">
 							<GCheckbox
 								v-model="checkboxes.checked"
@@ -1114,7 +1194,9 @@
 					</div>
 
 					<div class="space-y-4">
-						<h3 class="font-medium text-gray-700">Invalid Checkboxes</h3>
+						<h3 class="font-medium">
+							Invalid Checkboxes
+						</h3>
 						<div class="space-y-2">
 							<GCheckbox
 								v-model="checkboxes.invalid1"
@@ -1133,25 +1215,25 @@
 
 			<!-- CHECKBOX GROUPS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Checkbox Groups
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Grouped checkboxes for form settings
 				</p>
 
 				<div class="space-y-4">
 					<div class="p-4 border rounded-lg">
-						<h3 class="font-medium text-gray-900 mb-4">
+						<h3 class="font-medium mb-4">
 							Preferences
 						</h3>
 						<div class="space-y-3">
 							<div class="flex items-center justify-between">
 								<div>
-									<div class="font-medium text-gray-900">
+									<div class="font-medium">
 										Receive emails
 									</div>
-									<div class="text-sm text-gray-600">
+									<div class="text-sm">
 										Get email notifications
 									</div>
 								</div>
@@ -1160,10 +1242,10 @@
 
 							<div class="flex items-center justify-between">
 								<div>
-									<div class="font-medium text-gray-900">
+									<div class="font-medium">
 										Public profile
 									</div>
-									<div class="text-sm text-gray-600">
+									<div class="text-sm">
 										Make profile visible to everyone
 									</div>
 								</div>
@@ -1172,10 +1254,10 @@
 
 							<div class="flex items-center justify-between">
 								<div>
-									<div class="font-medium text-gray-900">
+									<div class="font-medium">
 										Two-factor auth
 									</div>
-									<div class="text-sm text-gray-600">
+									<div class="text-sm">
 										Enable 2FA for security
 									</div>
 								</div>
@@ -1189,16 +1271,16 @@
 
 		<!-- DIALOG SECTION -->
 		<div class="space-y-10 border-t pt-10">
-			<h1 class="text-3xl font-bold text-gray-900">
+			<h1 class="text-3xl font-bold">
 				Dialog Components
 			</h1>
 
 			<!-- BASIC DIALOGS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Basic Dialogs
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Different dialog sizes and configurations
 				</p>
 
@@ -1255,10 +1337,16 @@
 						<p>This dialog includes action buttons in the footer.</p>
 					</DialogBody>
 					<DialogFooter>
-						<GButton appearance="outlined" @click="dialogs.withFooter = false">
+						<GButton
+							appearance="outlined"
+							@click="dialogs.withFooter = false"
+						>
 							Cancel
 						</GButton>
-						<GButton variant="primary" @click="dialogs.withFooter = false">
+						<GButton
+							variant="primary"
+							@click="dialogs.withFooter = false"
+						>
 							Confirm
 						</GButton>
 					</DialogFooter>
@@ -1267,27 +1355,39 @@
 
 			<!-- DIALOG SIZES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Dialog Sizes
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Small, medium, large, and extra large variants
 				</p>
 
 				<div class="flex flex-wrap gap-4">
-					<GButton size="sm" @click="dialogs.small = true">
+					<GButton
+						size="sm"
+						@click="dialogs.small = true"
+					>
 						Small Dialog
 					</GButton>
 
-					<GButton size="md" @click="dialogs.medium = true">
+					<GButton
+						size="md"
+						@click="dialogs.medium = true"
+					>
 						Medium Dialog
 					</GButton>
 
-					<GButton size="lg" @click="dialogs.large = true">
+					<GButton
+						size="lg"
+						@click="dialogs.large = true"
+					>
 						Large Dialog
 					</GButton>
 
-					<GButton size="lg" @click="dialogs.extraLarge = true">
+					<GButton
+						size="lg"
+						@click="dialogs.extraLarge = true"
+					>
 						Extra Large Dialog
 					</GButton>
 				</div>
@@ -1335,14 +1435,17 @@
 
 			<!-- CUSTOM DIALOG -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Custom Dialog
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Dialog with custom content and configuration
 				</p>
 
-				<GButton variant="danger" @click="dialogs.custom = true">
+				<GButton
+					variant="danger"
+					@click="dialogs.custom = true"
+				>
 					Open Custom Dialog
 				</GButton>
 
@@ -1358,18 +1461,32 @@
 						<DialogCloseTrigger @click="dialogs.custom = false" />
 					</DialogHeader>
 					<DialogBody>
-						<p class="mb-4">Are you sure you want to delete this item?</p>
-						<p class="text-sm text-gray-600">This action will permanently delete the selected item and all associated data.</p>
+						<p class="mb-4">
+							Are you sure you want to delete this item?
+						</p>
+						<p class="text-sm">
+							This action will permanently delete the selected item and all associated data.
+						</p>
 					</DialogBody>
 					<DialogFooter space-between>
-						<GButton appearance="outlined" variant="danger" @click="dialogs.custom = false">
+						<GButton
+							appearance="outlined"
+							variant="danger"
+							@click="dialogs.custom = false"
+						>
 							Delete Anyway
 						</GButton>
 						<div class="flex gap-2">
-							<GButton appearance="outlined" @click="dialogs.custom = false">
+							<GButton
+								appearance="outlined"
+								@click="dialogs.custom = false"
+							>
 								Cancel
 							</GButton>
-							<GButton variant="danger" @click="dialogs.custom = false">
+							<GButton
+								variant="danger"
+								@click="dialogs.custom = false"
+							>
 								Delete
 							</GButton>
 						</div>
@@ -1380,16 +1497,16 @@
 
 		<!-- DRAWER SECTION -->
 		<div class="space-y-10 border-t pt-10">
-			<h1 class="text-3xl font-bold text-gray-900">
+			<h1 class="text-3xl font-bold">
 				Drawer Components
 			</h1>
 
 			<!-- BASIC DRAWERS -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Basic Drawers
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Different drawer sizes and configurations
 				</p>
 
@@ -1445,10 +1562,16 @@
 						<p>This drawer includes action buttons in the footer.</p>
 					</DrawerBody>
 					<DrawerFooter>
-						<GButton appearance="outlined" @click="drawers.withFooter = false">
+						<GButton
+							appearance="outlined"
+							@click="drawers.withFooter = false"
+						>
 							Cancel
 						</GButton>
-						<GButton variant="primary" @click="drawers.withFooter = false">
+						<GButton
+							variant="primary"
+							@click="drawers.withFooter = false"
+						>
 							Confirm
 						</GButton>
 					</DrawerFooter>
@@ -1457,10 +1580,10 @@
 
 			<!-- DRAWER SIZES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Drawer Sizes
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Small, medium, large, and extra large variants
 				</p>
 
@@ -1525,14 +1648,17 @@
 
 			<!-- CUSTOM DRAWER -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Custom Drawer
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					Drawer with form and custom content
 				</p>
 
-				<GButton variant="brand" @click="drawers.custom = true">
+				<GButton
+					variant="brand"
+					@click="drawers.custom = true"
+				>
 					Open Settings Drawer
 				</GButton>
 
@@ -1545,20 +1671,30 @@
 					<DrawerBody>
 						<div class="space-y-4">
 							<div>
-								<h3 class="font-medium mb-2">General Settings</h3>
+								<h3 class="font-medium mb-2">
+									General Settings
+								</h3>
 								<div class="space-y-3">
 									<div class="flex items-center justify-between">
 										<div>
-											<div class="font-medium">Email Notifications</div>
-											<div class="text-sm text-gray-600">Receive email updates</div>
+											<div class="font-medium">
+												Email Notifications
+											</div>
+											<div class="text-sm">
+												Receive email updates
+											</div>
 										</div>
 										<GCheckbox v-model="drawerSettings.email" />
 									</div>
 
 									<div class="flex items-center justify-between">
 										<div>
-											<div class="font-medium">Push Notifications</div>
-											<div class="text-sm text-gray-600">Get push notifications</div>
+											<div class="font-medium">
+												Push Notifications
+											</div>
+											<div class="text-sm">
+												Get push notifications
+											</div>
 										</div>
 										<GCheckbox v-model="drawerSettings.push" />
 									</div>
@@ -1566,7 +1702,9 @@
 							</div>
 
 							<div>
-								<h3 class="font-medium mb-2">Preferences</h3>
+								<h3 class="font-medium mb-2">
+									Preferences
+								</h3>
 								<GInput
 									v-model="drawerSettings.username"
 									label="Username"
@@ -1577,10 +1715,16 @@
 						</div>
 					</DrawerBody>
 					<DrawerFooter>
-						<GButton appearance="outlined" @click="drawers.custom = false">
+						<GButton
+							appearance="outlined"
+							@click="drawers.custom = false"
+						>
 							Cancel
 						</GButton>
-						<GButton variant="primary" @click="drawers.custom = false">
+						<GButton
+							variant="primary"
+							@click="drawers.custom = false"
+						>
 							Save Changes
 						</GButton>
 					</DrawerFooter>
@@ -1592,16 +1736,16 @@
 		<div class="space-y-10 border-t pt-10">
 			<div class="flex items-center justify-between">
 				<div>
-					<h1 class="text-3xl font-bold text-gray-900">
+					<h1 class="text-3xl font-bold">
 						Theme Management
 					</h1>
-					<p class="text-gray-600 mt-2">
+					<p class="mt-2">
 						Current theme: <span class="font-semibold">{{ currentTheme }}</span>
 					</p>
 				</div>
 				<div class="flex items-center gap-4">
 					<GThemeToggle />
-					<div class="text-sm text-gray-600">
+					<div class="text-sm">
 						Click theme button to change themes
 					</div>
 				</div>
@@ -1609,16 +1753,16 @@
 
 			<!-- THEME EXAMPLES -->
 			<section class="space-y-4">
-				<h2 class="text-xl font-semibold text-gray-800">
+				<h2 class="text-xl font-semibold">
 					Theme Examples
 				</h2>
-				<p class="text-gray-600">
+				<p>
 					How different components look in various themes
 				</p>
 
 				<div class="grid gap-6 md:grid-cols-2">
 					<div class="space-y-4">
-						<h3 class="text-lg font-medium text-gray-800">
+						<h3 class="text-lg font-medium">
 							Form Controls
 						</h3>
 						<div class="space-y-3">
@@ -1639,7 +1783,7 @@
 					</div>
 
 					<div class="space-y-4">
-						<h3 class="text-lg font-medium text-gray-800">
+						<h3 class="text-lg font-medium">
 							Current Theme Info
 						</h3>
 						<div class="p-4 border rounded-lg space-y-2">

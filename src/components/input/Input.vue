@@ -10,7 +10,10 @@
 		:size="size"
 		:loading="loading"
 	>
-		<template #left v-if="slots.left">
+		<template
+			v-if="slots.left"
+			#left
+		>
 			<slot name="left" />
 		</template>
 
@@ -33,7 +36,10 @@
 			@blur="onBlur"
 		>
 
-		<template #right v-if="slots.right || clearable || loading">
+		<template
+			v-if="slots.right || clearable || loading"
+			#right
+		>
 			<slot name="right" />
 			<button
 				v-if="clearable && hasValue && !disabled"

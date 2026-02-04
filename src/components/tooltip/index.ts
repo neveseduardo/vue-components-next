@@ -1,1 +1,1 @@
-export { default as GTooltip } from './Tooltip.vue'
+export { default as GTooltip } from './Tooltip.vue';

@@ -1,5 +1,8 @@
 <template>
-	<div class="g-date-picker" :class="classes">
+	<div
+		class="g-date-picker"
+		:class="classes"
+	>
 		<ElDatePicker
 			:id="datePickerId"
 			ref="input"
@@ -67,14 +70,14 @@ const datePickerId = computed(() => attrs.id as string || `date-picker-${Math.ra
 
 const mutableValue = computed({
 	get(): any {
-const classes = computed(() => ({
-	'is-disabled': props.disabled,
-	'is-loading': props.loading,
-	[`g-date-picker--${props.type}`]: props.type,
-	[`g-date-picker--${props.labelVariant}`]: props.label,
-}));
+		const classes = computed(() => ({
+			'is-disabled': props.disabled,
+			'is-loading': props.loading,
+			[`g-date-picker--${props.type}`]: props.type,
+			[`g-date-picker--${props.labelVariant}`]: props.label,
+		}));
 
-focused.value = !isEmpty(props.modelValue);
+		focused.value = !isEmpty(props.modelValue);
 		return props.modelValue;
 	},
 	set(value: any) {

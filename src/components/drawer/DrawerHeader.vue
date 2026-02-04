@@ -1,8 +1,18 @@
 <template>
 	<div class="g-drawer__header">
 		<div class="g-drawer__header-content">
-			<h2 v-if="title" class="g-drawer__title">{{ title }}</h2>
-			<p v-if="subtitle" class="g-drawer__subtitle">{{ subtitle }}</p>
+			<h2
+				v-if="title"
+				class="g-drawer__title"
+			>
+				{{ title }}
+			</h2>
+			<p
+				v-if="subtitle"
+				class="g-drawer__subtitle"
+			>
+				{{ subtitle }}
+			</p>
 			<slot />
 		</div>
 		<slot name="close">

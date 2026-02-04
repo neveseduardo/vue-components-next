@@ -1,5 +1,8 @@
 <template>
-	<div class="g-toast" :class="classes">
+	<div
+		class="g-toast"
+		:class="classes"
+	>
 		<div class="g-toast__content">
 			<slot />
 		</div>

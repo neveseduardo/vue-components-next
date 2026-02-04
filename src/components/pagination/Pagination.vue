@@ -41,7 +41,7 @@
 				<li
 					v-tooltip.bottom="activePrevButton && 'Ir para a página anterior'"
 					class="g-pagination__list-item g-pagination__prev"
-	:class="{ 'is-disabled': !activePrevButton }"
+					:class="{ 'is-disabled': !activePrevButton }"
 				>
 					<a @click.prevent="activePrevButton && navigate(currentPage - 1)">
 						<GIcon
@@ -56,7 +56,7 @@
 					v-for="(page, index) in pages"
 					:key="index"
 					class="g-pagination__list-item g-pagination__page"
-	:class="{ 'is-active': page === currentPage }"
+					:class="{ 'is-active': page === currentPage }"
 				>
 					<a @click.prevent="navigate(page)">{{ page }}</a>
 				</li>
@@ -64,7 +64,7 @@
 				<li
 					v-tooltip.bottom="activeNextButton && 'Ir para a próxima página'"
 					class="g-pagination__list-item g-pagination__next"
-	:class="{ 'is-disabled': !activeNextButton }"
+					:class="{ 'is-disabled': !activeNextButton }"
 				>
 					<a @click.prevent="activeNextButton && navigate(currentPage + 1)">
 						<GIcon
@@ -76,7 +76,7 @@
 				</li>
 				<li
 					v-tooltip.bottom="activeLastPageButton && 'Ir para a última página'"
-	:class="{ 'is-disabled': !activeLastPageButton }"
+					:class="{ 'is-disabled': !activeLastPageButton }"
 					class="g-pagination__list-item g-pagination__next"
 				>
 					<a @click.prevent="activeLastPageButton && navigate(totalPages)">

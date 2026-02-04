@@ -1,8 +1,18 @@
 <template>
 	<div class="g-dialog__header">
 		<div class="g-dialog__header-content">
-			<h2 v-if="title" class="g-dialog__title">{{ title }}</h2>
-			<p v-if="subtitle" class="g-dialog__subtitle">{{ subtitle }}</p>
+			<h2
+				v-if="title"
+				class="g-dialog__title"
+			>
+				{{ title }}
+			</h2>
+			<p
+				v-if="subtitle"
+				class="g-dialog__subtitle"
+			>
+				{{ subtitle }}
+			</p>
 			<slot />
 		</div>
 		<slot name="close">

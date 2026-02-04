@@ -1,5 +1,8 @@
 <template>
-	<div class="g-drawer__body" :class="classes">
+	<div
+		class="g-drawer__body"
+		:class="classes"
+	>
 		<slot />
 	</div>
 </template>

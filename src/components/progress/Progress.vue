@@ -1,5 +1,8 @@
 <template>
-	<div class="g-progress" :class="classes">
+	<div
+		class="g-progress"
+		:class="classes"
+	>
 		<ElProgress
 			class="g-progress__element"
 			:type="type"

@@ -1,5 +1,8 @@
 <template>
-	<div class="g-select" :class="classes">
+	<div
+		class="g-select"
+		:class="classes"
+	>
 		<ElSelect
 			:id="selectId"
 			ref="select"
@@ -19,15 +22,15 @@
 			@clear="onClear"
 			@visible-change="onVisibleChange"
 		>
-		<template v-if="options.length">
-			<ElOption
-				v-for="(item, index) in options"
-				:key="item.value + index"
-				:label="item.label"
-				:value="item.value"
-				:disabled="item.disabled"
-			/>
-		</template>
+			<template v-if="options.length">
+				<ElOption
+					v-for="(item, index) in options"
+					:key="item.value + index"
+					:label="item.label"
+					:value="item.value"
+					:disabled="item.disabled"
+				/>
+			</template>
 		</ElSelect>
 	</div>
 </template>
