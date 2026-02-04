@@ -2,10 +2,12 @@
 	<ElDrawer
 		v-model="mutableVisible"
 		class="g-drawer"
+		:class="classes"
 		:size="size"
 		:with-header="false"
 		:wrapper-closable="!disabled"
 		:close-on-press-escape="!disabled"
+		:destroy-on-close="destroyOnClose"
 		v-bind="{ ...attrs, class: undefined }"
 		@close="onClose"
 		@open="$emit('open', $event)"
@@ -17,39 +19,50 @@
 			:fullscreen="false"
 			:lock="true"
 		/>
-		<slot name="drawer-header">
-			<div class="g-drawer__header">
-				<div class="g-drawer__title">
-					<h3>{{ title }}</h3>
-					<span>{{ subtitle }}</span>
-				</div>
-
-				<button
-					class="g-drawer__close-button"
-					:disabled="disabled"
-					@click="onClose"
+		<slot>
+			<slot name="header">
+				<DrawerHeader
+					v-if="title || subtitle"
+					:title="title"
+					:subtitle="subtitle"
 				>
-					<GIcon icon="mdi:close" />
-				</button>
+					<slot name="close-trigger">
+						<DrawerCloseTrigger
+							v-if="showClose"
+							:disabled="disabled"
+							@click="onClose"
+						/>
+					</slot>
+				</DrawerHeader>
+			</slot>
+			<div class="g-drawer__wrapper">
+				<slot name="body">
+					<DrawerBody :compact="compactBody">
+						<slot />
+					</DrawerBody>
+				</slot>
+				<slot name="footer">
+					<DrawerFooter
+						v-if="hasFooterSlot"
+						:center="centerFooter"
+						:compact="compactFooter"
+						:space-between="footerSpaceBetween"
+					>
+						<slot name="footer" />
+					</DrawerFooter>
+				</slot>
 			</div>
 		</slot>
-
-		<div class="g-drawer__wrapper">
-			<main class="g-drawer__content">
-				<slot />
-			</main>
-
-			<footer class="g-drawer__footer">
-				<slot name="drawer-footer" />
-			</footer>
-		</div>
 	</ElDrawer>
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { computed, useAttrs, useSlots } from 'vue';
 import { ElDrawer, ElLoading } from 'element-plus';
-import GIcon from '../icon/Icon.vue';
+import DrawerHeader from './DrawerHeader.vue';
+import DrawerBody from './DrawerBody.vue';
+import DrawerFooter from './DrawerFooter.vue';
+import DrawerCloseTrigger from './DrawerCloseTrigger.vue';
 
 interface Props {
 	title?: string;
@@ -58,6 +71,12 @@ interface Props {
 	modelValue?: boolean;
 	disabled?: boolean;
 	loading?: boolean;
+	showClose?: boolean;
+	destroyOnClose?: boolean;
+	compactBody?: boolean;
+	compactFooter?: boolean;
+	centerFooter?: boolean;
+	footerSpaceBetween?: boolean;
 }
 
 interface Emits {
@@ -74,15 +93,28 @@ const props = withDefaults(defineProps<Props>(), {
 	modelValue: false,
 	disabled: false,
 	loading: false,
+	showClose: true,
+	destroyOnClose: false,
+	compactBody: false,
+	compactFooter: false,
+	centerFooter: false,
+	footerSpaceBetween: false,
 });
 
 const emit = defineEmits<Emits>();
 const attrs = useAttrs();
+const slots = useSlots();
 
 const mutableVisible = computed({
 	get: () => props.modelValue,
 	set: (value: boolean) => emit('update:modelValue', value),
 });
+
+const classes = computed(() => ({
+	'is-disabled': props.disabled,
+}));
+
+const hasFooterSlot = computed(() => !!slots.footer);
 
 const onClose = () => {
 	emit('update:modelValue', false);
