@@ -1,52 +1,59 @@
 <template>
-	<div
+	<label
 		class="g-checkbox"
 		:class="classes"
 	>
-		<ElCheckbox
+		<input
 			v-model="mutable"
-			class="g-checkbox__input"
-			:checked="checked"
-			:border="border"
+			type="checkbox"
+			:indeterminate="indeterminate"
 			:disabled="disabled"
+			class="g-checkbox__input"
 			@change="onChange"
 		>
+		<span class="g-checkbox__inner" />
+		<span class="g-checkbox__label">
 			<slot />
-		</ElCheckbox>
-	</div>
+		</span>
+	</label>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { ElCheckbox, type CheckboxValueType } from 'element-plus';
 
 interface Props {
+	modelValue?: boolean;
 	value?: boolean;
 	checked?: boolean;
+	indeterminate?: boolean;
 	disabled?: boolean;
 	invalid?: boolean;
 	border?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
+	modelValue: false,
 	value: false,
 	checked: false,
+	indeterminate: false,
 	disabled: false,
 	invalid: false,
 	border: false,
 });
 
 const emit = defineEmits<{
+	(e: 'update:modelValue', value: boolean): void;
 	(e: 'input', value: boolean): void;
-	(e: 'change', value: CheckboxValueType): void;
+	(e: 'change', value: boolean): void;
 }>();
 
 const mutable = computed({
 	get(): boolean {
-		return props.value;
+		return props.modelValue ?? props.value;
 	},
 	set(value: boolean) {
 		if (!props.disabled) {
+			emit('update:modelValue', value);
 			emit('input', value);
 		}
 	},
@@ -55,12 +62,15 @@ const mutable = computed({
 const classes = computed(() => ({
 	'is-disabled': props.disabled,
 	'is-invalid': props.invalid,
-	[`g-checkbox--border`]: props.border,
+	'is-checked': mutable.value,
+	'is-indeterminate': props.indeterminate,
+	['g-checkbox--border']: props.border,
 }));
 
-const onChange = (value: CheckboxValueType) => {
+const onChange = (event: Event) => {
+	const target = event.target as HTMLInputElement;
 	if (!props.disabled) {
-		emit('change', value);
+		emit('change', target.checked);
 	}
 };
 </script>
