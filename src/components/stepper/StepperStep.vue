@@ -52,14 +52,16 @@ interface Props {
 	step: Step;
 	index: number;
 	currentStep: number;
-	disabled: boolean;
+	disabled?: boolean;
 }
 
 interface Emits {
 	(e: 'step-click', index: number): void;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+	disabled: false,
+});
 const emit = defineEmits<Emits>();
 
 const isClickable = computed(() => props.step.completed || props.index < props.currentStep);

@@ -1,5 +1,8 @@
 <template>
-	<div class="g-tooltip" :class="classes">
+	<div
+		class="g-tooltip"
+		:class="classes"
+	>
 		<ElTooltip
 			class="g-tooltip__element"
 			:effect="effect"
@@ -13,6 +16,7 @@
 
 <script setup lang="ts">
 import { ElTooltip } from 'element-plus';
+import { computed } from 'vue';
 
 type TooltipPlacement =
 	| 'top' | 'top-start' | 'top-end'

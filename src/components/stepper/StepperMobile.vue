@@ -5,7 +5,7 @@
 			<span class="mobile-progress">Passo {{ currentStep + 1 }} de {{ steps.length }}</span>
 		</div>
 
-		<el-progress
+		<ElProgress
 			:percentage="safeProgressPercentage"
 			:stroke-width="6"
 			:show-text="false"
@@ -16,6 +16,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 interface Step {
 	title?: string;
 	error?: boolean;

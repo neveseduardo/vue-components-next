@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, inject, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
 
 interface StepperContext {
 	currentStep(): number;

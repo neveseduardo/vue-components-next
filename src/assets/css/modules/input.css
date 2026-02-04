@@ -377,9 +377,3 @@
 .g-input-wrapper.is-invalid .g-input-wrapper__label {
 	color: var(--color-danger-key);
 }
-
-.dark {
-	--g-input-bg: var(--color-background-primary);
-	--g-input-label-floating-bg: var(--color-background-primary);
-	--g-input-label-floating-bg-fallback: var(--color-background-primary);
-}

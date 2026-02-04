@@ -20,11 +20,14 @@
 import { computed } from 'vue';
 import { ElDropdown, ElDropdownMenu } from 'element-plus';
 
+type PlacementType = 'left' | 'right' | 'auto' | 'auto-start' | 'auto-end' | 'top' | 'bottom' | 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end' | 'right-start' | 'right-end' | 'left-start' | 'left-end';
+
 interface Props {
 	variant?: 'default' | 'click' | 'hover';
 	position?: 'bottom' | 'top' | 'left' | 'right';
 	disabled?: boolean;
 	trigger?: 'click' | 'hover' | 'contextmenu';
+	placement?: PlacementType;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -32,21 +35,12 @@ const props = withDefaults(defineProps<Props>(), {
 	position: 'bottom',
 	disabled: false,
 	trigger: 'click',
+	placement: 'top',
 });
 
 const emit = defineEmits<{
 	(e: 'command', command: any): void;
 }>();
-
-const placement = computed(() => {
-	const positionMap: Record<string, string> = {
-		'bottom': 'bottom',
-		'top': 'top',
-		'left': 'left',
-		'right': 'right',
-	};
-	return positionMap[props.position] || 'bottom';
-});
 
 const classes = computed(() => ({
 	[`g-dropdown--${props.variant}`]: props.variant,
