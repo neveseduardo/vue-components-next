@@ -39,5 +39,19 @@
 	"files.trimTrailingWhitespace": true,
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
-	"editor.tabSize": 4
+	"editor.tabSize": 4,
+	"typescript.tsserver.maxTsServerMemory": 4096,
+	"typescript.tsserver.watchOptions": {
+		"watchFile": "useFsEvents",
+		"watchDirectory": "useFsEvents",
+		"synchronousWatchDirectory": true,
+		"excludeDirectories": ["**/node_modules", "**/.git"]
+	},
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/*.code-search": true,
+		"**/dist": true,
+		"**/.git": true
+	}
 }
