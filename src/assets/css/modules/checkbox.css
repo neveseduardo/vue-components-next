@@ -1,0 +1,151 @@
+:root {
+	--g-checkbox-size: 16px;
+	--g-checkbox-border-width: 2px;
+	--g-checkbox-border-color: var(--color-neutral-60);
+	--g-checkbox-border-hover-color: var(--color-primary-50);
+	--g-checkbox-bg: var(--color-neutral-99);
+	--g-checkbox-check-size: 12px;
+	--g-checkbox-check-color: var(--color-neutral-99);
+	--g-checkbox-checked-bg: var(--color-primary-50);
+	--g-checkbox-label-color: var(--color-text-primary);
+	--g-checkbox-label-font-size: 14px;
+	--g-checkbox-label-line-height: 1.5;
+	--g-checkbox-gap: 8px;
+	--g-checkbox-padding: 4px;
+	--g-checkbox-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	--g-checkbox-disabled-opacity: 0.6;
+	--g-checkbox-invalid-color: var(--color-danger-50);
+}
+
+.dark {
+	--g-checkbox-bg: var(--color-neutral-10);
+	--g-checkbox-border-color: var(--color-neutral-60);
+	--g-checkbox-label-color: var(--color-text-primary);
+}
+
+.g-checkbox {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--g-checkbox-gap);
+	cursor: pointer;
+	user-select: none;
+	transition: var(--g-checkbox-transition);
+}
+
+.g-checkbox.is-disabled {
+	opacity: var(--g-checkbox-disabled-opacity);
+	cursor: not-allowed;
+}
+
+.g-checkbox__input {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.g-checkbox__input .el-checkbox__inner {
+	width: var(--g-checkbox-size);
+	height: var(--g-checkbox-size);
+	border-width: var(--g-checkbox-border-width);
+	border-color: var(--g-checkbox-border-color);
+	background-color: var(--g-checkbox-bg);
+	border-radius: 2px;
+	transition: var(--g-checkbox-transition);
+}
+
+.g-checkbox:hover .el-checkbox__inner:not(.is-disabled) {
+	border-color: var(--g-checkbox-border-hover-color);
+}
+
+.g-checkbox.is-checked .el-checkbox__inner {
+	background-color: var(--g-checkbox-checked-bg);
+	border-color: var(--g-checkbox-checked-bg);
+}
+
+.g-checkbox.is-checked .el-checkbox__inner::after {
+	width: var(--g-checkbox-check-size);
+	height: var(--g-checkbox-check-size);
+	border-color: var(--g-checkbox-check-color);
+	border-style: solid;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg) scaleY(1);
+	position: absolute;
+	top: 2px;
+	left: 4px;
+	content: '';
+}
+
+.g-checkbox.is-indeterminate .el-checkbox__inner {
+	background-color: var(--g-checkbox-checked-bg);
+	border-color: var(--g-checkbox-checked-bg);
+}
+
+.g-checkbox.is-indeterminate .el-checkbox__inner::before {
+	width: 8px;
+	height: 2px;
+	background-color: var(--g-checkbox-check-color);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	content: '';
+}
+
+.g-checkbox.is-indeterminate .el-checkbox__inner::after {
+	display: none;
+}
+
+.g-checkbox.is-disabled .el-checkbox__inner {
+	background-color: var(--color-neutral-90);
+	border-color: var(--color-neutral-60);
+}
+
+.g-checkbox__label {
+	font-size: var(--g-checkbox-label-font-size);
+	line-height: var(--g-checkbox-label-line-height);
+	color: var(--g-checkbox-label-color);
+}
+
+.g-checkbox.is-disabled .g-checkbox__label {
+	color: var(--color-neutral-60);
+}
+
+.g-checkbox.is-invalid .el-checkbox__inner {
+	border-color: var(--g-checkbox-invalid-color);
+}
+
+.g-checkbox.is-invalid.is-checked .el-checkbox__inner {
+	background-color: var(--g-checkbox-invalid-color);
+	border-color: var(--g-checkbox-invalid-color);
+}
+
+.g-checkbox.is-invalid.is-checked .el-checkbox__inner::after {
+	border-color: var(--g-checkbox-check-color);
+}
+
+.g-checkbox--border {
+	display: flex;
+	padding: var(--g-checkbox-padding) 12px;
+	border: 1px solid var(--g-checkbox-border-color);
+	border-radius: 4px;
+	transition: var(--g-checkbox-transition);
+}
+
+.g-checkbox--border:hover {
+	border-color: var(--g-checkbox-border-hover-color);
+}
+
+.g-checkbox.is-checked.g-checkbox--border {
+	border-color: var(--g-checkbox-checked-bg);
+	background-color: var(--color-primary-99);
+}
+
+.dark .g-checkbox.is-checked.g-checkbox--border {
+	background-color: var(--color-primary-10);
+}
+
+.g-checkbox.is-disabled.g-checkbox--border {
+	border-color: var(--color-neutral-60);
+	background-color: transparent;
+}
