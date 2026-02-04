@@ -1,0 +1,181 @@
+/* ======================================================
+ * Card CSS Variables
+ * ====================================================== */
+:root {
+	/* Base Dimensions */
+	--g-card-border-radius: 0.5rem;
+	--g-card-border-width: 1px;
+
+	/* Colors */
+	--g-card-bg: var(--color-neutral-95);
+	--g-card-border-color: var(--color-border-primary);
+	--g-card-header-bg: var(--color-neutral-95);
+	--g-card-footer-bg: var(--color-neutral-95);
+	--g-card-title-color: var(--color-text-primary);
+	--g-card-subtitle-color: var(--color-text-secondary);
+	--g-card-description-color: var(--color-text-primary);
+
+	/* Shadows */
+	--g-card-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	--g-card-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--g-card-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+	/* Spacing */
+	--g-card-padding-lg: 1.5rem;
+	--g-card-padding-md: 1rem;
+	--g-card-padding-sm: 0.75rem;
+	--g-card-padding-xs: 0.25rem;
+
+	/* Typography */
+	--g-card-title-font-size: 1.125rem;
+	--g-card-title-font-weight: 600;
+	--g-card-subtitle-font-size: 0.875rem;
+	--g-card-description-font-size: 1rem;
+
+	/* Transitions */
+	--g-card-transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.dark {
+	--g-card-bg: var(--color-neutral-20);
+	--g-card-header-bg: var(--color-neutral-20);
+	--g-card-footer-bg: var(--color-neutral-20);
+	--g-card-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+	--g-card-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+	--g-card-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+.g-card {
+	background: var(--g-card-bg);
+	border: var(--g-card-border-width) solid var(--g-card-border-color);
+	border-radius: var(--g-card-border-radius);
+	box-shadow: var(--g-card-shadow-sm);
+	overflow: hidden;
+	transition: var(--g-card-transition);
+}
+
+.g-card:hover {
+	box-shadow: var(--g-card-shadow-md);
+}
+
+.g-card--elevated {
+	box-shadow: var(--g-card-shadow-lg);
+}
+
+.g-card--outlined {
+	border-width: 2px;
+	box-shadow: none;
+}
+
+.g-card--flat {
+	box-shadow: none;
+	border-color: var(--color-border-secondary);
+}
+
+.g-card__header {
+	padding: var(--g-card-padding-lg) var(--g-card-padding-lg) var(--g-card-padding-md);
+	border-bottom: var(--g-card-border-width) solid var(--g-card-border-color);
+	background: var(--g-card-header-bg);
+}
+
+.g-card__body {
+	padding: var(--g-card-padding-lg);
+}
+
+.g-card__footer {
+	padding: var(--g-card-padding-md) var(--g-card-padding-lg);
+	border-top: var(--g-card-border-width) solid var(--g-card-border-color);
+	background: var(--g-card-footer-bg);
+}
+
+.g-card__header--compact {
+	padding: var(--g-card-padding-md) var(--g-card-padding-lg) var(--g-card-padding-sm);
+}
+
+.g-card__body--compact {
+	padding: var(--g-card-padding-md);
+}
+
+.g-card__footer--compact {
+	padding: var(--g-card-padding-sm) var(--g-card-padding-lg);
+}
+
+.g-card__title {
+	margin: 0;
+	font-size: var(--g-card-title-font-size);
+	font-weight: var(--g-card-title-font-weight);
+	color: var(--g-card-title-color);
+	line-height: 1.25;
+}
+
+.g-card__subtitle {
+	margin: var(--g-card-padding-xs) 0 0 0;
+	font-size: var(--g-card-subtitle-font-size);
+	color: var(--g-card-subtitle-color);
+	line-height: 1.4;
+}
+
+.g-card__description {
+	margin: 0;
+	font-size: var(--g-card-description-font-size);
+	color: var(--g-card-description-color);
+	line-height: 1.5;
+}
+
+.g-card--clickable {
+	cursor: pointer;
+}
+
+.g-card--clickable:hover {
+	transform: translateY(-2px);
+}
+
+.g-card--clickable:active {
+	transform: translateY(0);
+}
+
+.g-card__media {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.g-card__media--top {
+	border-bottom: var(--g-card-border-width) solid var(--g-card-border-color);
+}
+
+.g-card__media--bottom {
+	border-top: var(--g-card-border-width) solid var(--g-card-border-color);
+}
+
+.g-card__actions {
+	display: flex;
+	gap: var(--g-card-padding-sm);
+	align-items: center;
+	justify-content: flex-end;
+}
+
+/* ======================================================
+ * Input Styles inside Cards
+ * ====================================================== */
+.g-card .g-input-wrapper {
+	/* Use card-specific input colors */
+	--g-input-bg: var(--g-card-bg);
+	--g-input-border-color: var(--color-border-secondary);
+	--g-input-label-floating-bg: var(--g-card-bg);
+	--g-input-label-floating-bg-fallback: var(--g-card-bg);
+}
+
+.g-card .g-input-wrapper__container {
+	background: var(--g-card-bg);
+	border-color: var(--color-border-secondary);
+}
+
+.g-card .g-input-wrapper__label.is-floating {
+	background: var(--g-card-bg);
+}
+
+.g-card .g-input-wrapper.is-focused .g-input-wrapper__container {
+	border-color: var(--color-primary-key);
+	box-shadow: 0 0 0 var(--g-input-focus-shadow-size) color-mix(in srgb, var(--color-primary-key) 10%, transparent);
+}
