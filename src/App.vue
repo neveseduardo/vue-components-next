@@ -1606,20 +1606,6 @@
 					</div>
 				</div>
 			</div>
-				<div class="flex items-center gap-4">
-					<GThemeToggle />
-					<div class="text-sm text-gray-600">
-						Click theme button to change themes
-					</div>
-				</div>
-			</div>
-				<div class="flex items-center gap-4">
-					<GThemeToggle />
-					<div class="text-sm text-gray-600">
-						Click the theme button to change themes
-					</div>
-				</div>
-			</div>
 
 			<!-- THEME EXAMPLES -->
 			<section class="space-y-4">
