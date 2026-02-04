@@ -636,6 +636,284 @@
 			</section>
 		</div>
 
+		<!-- CARDS SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<h1 class="text-3xl font-bold text-gray-900">
+				Card Components
+			</h1>
+
+			<!-- BASIC CARDS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Basic Cards
+				</h2>
+				<p class="text-gray-600">
+					Different card variants and basic functionality
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+					<Card>
+						<CardHeader
+							title="Default Card"
+							subtitle="Basic card component"
+						/>
+						<CardBody text="This is a default card with header and body." />
+						<CardFooter>
+							<div class="g-card__actions">
+								<GButton size="sm" appearance="outlined">Cancel</GButton>
+								<GButton size="sm" variant="primary">Save</GButton>
+							</div>
+						</CardFooter>
+					</Card>
+
+					<Card variant="elevated">
+						<CardHeader
+							title="Elevated Card"
+							subtitle="With enhanced shadow"
+						/>
+						<CardBody text="This card has elevated styling with stronger shadow." />
+					</Card>
+
+					<Card variant="outlined">
+						<CardHeader
+							title="Outlined Card"
+							subtitle="Border emphasis"
+						/>
+						<CardBody text="This card uses outlined style with emphasized border." />
+					</Card>
+
+					<Card variant="flat">
+						<CardHeader
+							title="Flat Card"
+							subtitle="Minimal styling"
+						/>
+						<CardBody text="This card has flat appearance with minimal shadow." />
+					</Card>
+
+					<Card clickable @click="onCardClick('clickable')">
+						<CardHeader
+							title="Clickable Card"
+							subtitle="Click to interact"
+						/>
+						<CardBody text="This card responds to clicks and has hover effects." />
+					</Card>
+
+					<Card>
+						<CardBody>
+							<h3 class="g-card__title">Custom Content</h3>
+							<p class="g-card__description">Cards can contain completely custom content without predefined structure.</p>
+							<div class="mt-4 space-y-2">
+								<div class="flex items-center gap-2">
+									<div class="w-2 h-2 rounded-full bg-green-500"></div>
+									<span class="text-sm">Status: Active</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<div class="w-2 h-2 rounded-full bg-blue-500"></div>
+									<span class="text-sm">Priority: High</span>
+								</div>
+							</div>
+						</CardBody>
+					</Card>
+				</div>
+			</section>
+
+			<!-- COMPACT CARDS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Compact Cards
+				</h2>
+				<p class="text-gray-600">
+					Cards with reduced padding for space-efficient layouts
+				</p>
+
+				<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+					<Card>
+						<CardHeader
+							compact
+							title="Compact Header"
+							subtitle="Reduced padding"
+						/>
+						<CardBody compact text="Compact card body with less vertical spacing." />
+						<CardFooter compact>
+							<GButton size="sm" variant="primary">Action</GButton>
+						</CardFooter>
+					</Card>
+
+					<Card>
+						<CardBody compact>
+							<div class="flex items-center justify-between">
+								<div>
+									<h4 class="g-card__title">Quick Stats</h4>
+									<p class="g-card__subtitle">User metrics</p>
+								</div>
+								<div class="text-2xl font-bold text-primary-key">
+									{{ cardStats.users }}
+								</div>
+							</div>
+						</CardBody>
+					</Card>
+
+					<Card variant="outlined">
+						<CardBody compact>
+							<div class="space-y-2">
+								<div class="flex justify-between items-center">
+									<span class="text-sm font-medium">Progress</span>
+									<span class="text-sm">{{ cardStats.progress }}%</span>
+								</div>
+								<div class="w-full bg-neutral-90 rounded-full h-2">
+									<div 
+										class="bg-primary-key h-2 rounded-full transition-all"
+										:style="`width: ${cardStats.progress}%`"
+									></div>
+								</div>
+							</div>
+						</CardBody>
+					</Card>
+				</div>
+			</section>
+
+			<!-- INTERACTIVE CARDS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Interactive Cards
+				</h2>
+				<p class="text-gray-600">
+					Cards with interactive elements and dynamic content
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2">
+					<Card clickable @click="toggleFavorite">
+						<CardHeader>
+							<div class="flex items-start justify-between">
+								<div>
+									<h3 class="g-card__title">Favorite Toggle</h3>
+									<p class="g-card__subtitle">Click to toggle favorite status</p>
+								</div>
+								<div 
+									class="text-2xl transition-colors"
+									:class="cardInteractive.isFavorite ? 'text-warning-key' : 'text-neutral-60'"
+								>
+									{{ cardInteractive.isFavorite ? '★' : '☆' }}
+								</div>
+							</div>
+						</CardHeader>
+						<CardBody>
+							<p class="g-card__description">
+								This card demonstrates interactive state management. Click anywhere on the card to toggle the favorite status.
+							</p>
+							<div class="mt-4 p-3 bg-neutral-95 rounded-md">
+								<p class="text-sm">
+									Status: <span class="font-medium">{{ cardInteractive.isFavorite ? 'Favorited' : 'Not favorited' }}</span>
+								</p>
+							</div>
+						</CardBody>
+					</Card>
+
+					<Card>
+						<CardHeader
+							title="Form Card"
+							subtitle="With interactive elements"
+						/>
+						<CardBody>
+							<div class="space-y-4">
+								<GInput
+									v-model="cardInteractive.inputValue"
+									label="Type something..."
+									label-variant="floating"
+									placeholder="Card content"
+								/>
+								<GSwitch
+									v-model="cardInteractive.switchValue"
+									:text="{ active: 'Enabled', inactive: 'Disabled' }"
+								/>
+							</div>
+						</CardBody>
+						<CardFooter>
+							<div class="g-card__actions">
+								<GButton size="sm" appearance="outlined">Clear</GButton>
+								<GButton 
+									size="sm" 
+									variant="primary"
+									@click="submitCardForm"
+								>
+									Submit
+								</GButton>
+							</div>
+						</CardFooter>
+					</Card>
+				</div>
+			</section>
+
+			<!-- CARD LAYOUTS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Card Layouts
+				</h2>
+				<p class="text-gray-600">
+					Different layout patterns and compositions
+				</p>
+
+				<div class="space-y-6">
+					<!-- Horizontal Card -->
+					<Card class="max-w-2xl">
+						<div class="flex">
+							<div class="flex-shrink-0 bg-neutral-95 p-8 border-r border-neutral-90">
+								<div class="w-16 h-16 bg-primary-key rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+									A
+								</div>
+							</div>
+							<div class="flex-1">
+								<CardHeader
+									title="Horizontal Layout"
+									subtitle="Side-by-side content"
+								/>
+								<CardBody text="This card demonstrates a horizontal layout with an icon section and content area." />
+							</div>
+						</div>
+					</Card>
+
+					<!-- Stats Grid -->
+					<div class="grid gap-4 md:grid-cols-4">
+						<Card variant="flat">
+							<CardBody compact>
+								<div class="text-center">
+									<div class="text-2xl font-bold text-primary-key">{{ cardLayoutStats.total }}</div>
+									<div class="text-sm text-neutral-60">Total Users</div>
+								</div>
+							</CardBody>
+						</Card>
+
+						<Card variant="flat">
+							<CardBody compact>
+								<div class="text-center">
+									<div class="text-2xl font-bold text-success-key">{{ cardLayoutStats.active }}</div>
+									<div class="text-sm text-neutral-60">Active</div>
+								</div>
+							</CardBody>
+						</Card>
+
+						<Card variant="flat">
+							<CardBody compact>
+								<div class="text-center">
+									<div class="text-2xl font-bold text-warning-key">{{ cardLayoutStats.pending }}</div>
+									<div class="text-sm text-neutral-60">Pending</div>
+								</div>
+							</CardBody>
+						</Card>
+
+						<Card variant="flat">
+							<CardBody compact>
+								<div class="text-center">
+									<div class="text-2xl font-bold text-danger-key">{{ cardLayoutStats.inactive }}</div>
+									<div class="text-sm text-neutral-60">Inactive</div>
+								</div>
+							</CardBody>
+						</Card>
+					</div>
+				</div>
+			</section>
+		</div>
+
 		<!-- THEME TOGGLE SECTION -->
 		<div class="space-y-10 border-t pt-10">
 			<div class="flex items-center justify-between">
@@ -820,6 +1098,25 @@ const themeExamples = reactive({
 	switch: false,
 });
 
+// Card examples
+const cardStats = reactive({
+	users: 1234,
+	progress: 75,
+});
+
+const cardInteractive = reactive({
+	isFavorite: false,
+	inputValue: '',
+	switchValue: false,
+});
+
+const cardLayoutStats = reactive({
+	total: 1024,
+	active: 892,
+	pending: 87,
+	inactive: 45,
+});
+
 // Theme management
 const { theme: currentTheme, isDark: isDarkActive, setTheme } = useTheme();
 
@@ -843,6 +1140,22 @@ const onSettingChange = (settingName: string, value: boolean) => {
 const onThemeToggle = (value: boolean) => {
 	console.log('Theme toggled to:', value ? 'dark' : 'light');
 	setTheme(value ? 'dark' : 'light');
+};
+
+// Card event handlers
+const onCardClick = (cardType: string) => {
+	console.log(`${cardType} card clicked`);
+};
+
+const toggleFavorite = () => {
+	cardInteractive.isFavorite = !cardInteractive.isFavorite;
+};
+
+const submitCardForm = () => {
+	console.log('Card form submitted:', {
+		input: cardInteractive.inputValue,
+		switch: cardInteractive.switchValue,
+	});
 };
 
 // Helper functions
