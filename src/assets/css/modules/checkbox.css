@@ -54,6 +54,7 @@
 	border-radius: 2px;
 	transition: var(--g-checkbox-transition);
 	flex-shrink: 0;
+	overflow: hidden;
 }
 
 .g-checkbox:hover:not(.is-disabled) .g-checkbox__inner {
