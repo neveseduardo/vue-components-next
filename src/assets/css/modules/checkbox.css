@@ -4,7 +4,7 @@
 	--g-checkbox-border-color: var(--color-neutral-60);
 	--g-checkbox-border-hover-color: var(--color-primary-50);
 	--g-checkbox-bg: var(--color-neutral-99);
-	--g-checkbox-check-size: 12px;
+	--g-checkbox-check-size: 10px;
 	--g-checkbox-check-color: var(--color-neutral-99);
 	--g-checkbox-checked-bg: var(--color-primary-50);
 	--g-checkbox-label-color: var(--color-text-primary);
@@ -74,7 +74,7 @@
 	border: solid var(--g-checkbox-check-color);
 	border-width: 0 2px 2px 0;
 	transform: rotate(45deg);
-	top: 2px;
+	top: 3px;
 	left: 5px;
 }
 
