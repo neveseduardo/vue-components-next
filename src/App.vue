@@ -914,6 +914,680 @@
 			</section>
 		</div>
 
+		<!-- RADIO SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<h1 class="text-3xl font-bold text-gray-900">
+				Radio Components
+			</h1>
+
+			<!-- BASIC RADIOS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Basic Radios
+				</h2>
+				<p class="text-gray-600">
+					Different radio button configurations and states
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2">
+					<div class="space-y-4">
+						<h3 class="font-medium text-gray-700">Basic Radio Group</h3>
+						<div class="space-y-2">
+							<GRadio
+								v-model="radios.basic"
+								label="Option 1"
+								value="option1"
+							/>
+							<GRadio
+								v-model="radios.basic"
+								label="Option 2"
+								value="option2"
+							/>
+							<GRadio
+								v-model="radios.basic"
+								label="Option 3"
+								value="option3"
+							/>
+						</div>
+						<p class="text-sm text-gray-600">
+							Selected: {{ radios.basic }}
+						</p>
+					</div>
+
+					<div class="space-y-4">
+						<h3 class="font-medium text-gray-700">Border Radio Group</h3>
+						<div class="space-y-2">
+							<GRadio
+								v-model="radios.border"
+								label="Plan A"
+								value="plan-a"
+								:border="true"
+							/>
+							<GRadio
+								v-model="radios.border"
+								label="Plan B"
+								value="plan-b"
+								:border="true"
+							/>
+							<GRadio
+								v-model="radios.border"
+								label="Plan C"
+								value="plan-c"
+								:border="true"
+							/>
+						</div>
+						<p class="text-sm text-gray-600">
+							Selected: {{ radios.border }}
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- RADIO STATES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Radio States
+				</h2>
+				<p class="text-gray-600">
+					Disabled and invalid states
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2">
+					<div class="space-y-4">
+						<h3 class="font-medium text-gray-700">Disabled Radios</h3>
+						<div class="space-y-2">
+							<GRadio
+								v-model="radios.disabled"
+								label="Disabled Option 1"
+								value="disabled1"
+								:disabled="true"
+							/>
+							<GRadio
+								v-model="radios.disabled"
+								label="Disabled Option 2"
+								value="disabled2"
+								:disabled="true"
+							/>
+						</div>
+					</div>
+
+					<div class="space-y-4">
+						<h3 class="font-medium text-gray-700">Invalid Radios</h3>
+						<div class="space-y-2">
+							<GRadio
+								v-model="radios.invalid"
+								label="Invalid Option 1"
+								value="invalid1"
+								:invalid="true"
+							/>
+							<GRadio
+								v-model="radios.invalid"
+								label="Invalid Option 2"
+								value="invalid2"
+								:invalid="true"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- CHECKBOX SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<h1 class="text-3xl font-bold text-gray-900">
+				Checkbox Components
+			</h1>
+
+			<!-- BASIC CHECKBOXES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Basic Checkboxes
+				</h2>
+				<p class="text-gray-600">
+					Different checkbox configurations and states
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2">
+					<div class="space-y-4">
+						<h3 class="font-medium text-gray-700">Basic Checkboxes</h3>
+						<div class="space-y-2">
+							<GCheckbox v-model="checkboxes.basic1" label="Option 1" />
+							<GCheckbox v-model="checkboxes.basic2" label="Option 2" />
+							<GCheckbox v-model="checkboxes.basic3" label="Option 3" />
+						</div>
+						<p class="text-sm text-gray-600">
+							States: {{ checkboxes.basic1 }}, {{ checkboxes.basic2 }}, {{ checkboxes.basic3 }}
+						</p>
+					</div>
+
+					<div class="space-y-4">
+						<h3 class="font-medium text-gray-700">Border Checkboxes</h3>
+						<div class="space-y-2">
+							<GCheckbox
+								v-model="checkboxes.border1"
+								label="Feature A"
+								:border="true"
+							/>
+							<GCheckbox
+								v-model="checkboxes.border2"
+								label="Feature B"
+								:border="true"
+							/>
+							<GCheckbox
+								v-model="checkboxes.border3"
+								label="Feature C"
+								:border="true"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CHECKBOX STATES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Checkbox States
+				</h2>
+				<p class="text-gray-600">
+					Disabled, checked, and invalid states
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2">
+					<div class="space-y-4">
+						<h3 class="font-medium text-gray-700">State Examples</h3>
+						<div class="space-y-2">
+							<GCheckbox
+								v-model="checkboxes.checked"
+								label="Checked by default"
+							/>
+							<GCheckbox
+								:model-value="true"
+								label="Disabled Checked"
+								:disabled="true"
+							/>
+							<GCheckbox
+								:model-value="false"
+								label="Disabled Unchecked"
+								:disabled="true"
+							/>
+						</div>
+					</div>
+
+					<div class="space-y-4">
+						<h3 class="font-medium text-gray-700">Invalid Checkboxes</h3>
+						<div class="space-y-2">
+							<GCheckbox
+								v-model="checkboxes.invalid1"
+								label="Invalid Option 1"
+								:invalid="true"
+							/>
+							<GCheckbox
+								v-model="checkboxes.invalid2"
+								label="Invalid Option 2"
+								:invalid="true"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CHECKBOX GROUPS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Checkbox Groups
+				</h2>
+				<p class="text-gray-600">
+					Grouped checkboxes for form settings
+				</p>
+
+				<div class="space-y-4">
+					<div class="p-4 border rounded-lg">
+						<h3 class="font-medium text-gray-900 mb-4">
+							Preferences
+						</h3>
+						<div class="space-y-3">
+							<div class="flex items-center justify-between">
+								<div>
+									<div class="font-medium text-gray-900">
+										Receive emails
+									</div>
+									<div class="text-sm text-gray-600">
+										Get email notifications
+									</div>
+								</div>
+								<GCheckbox v-model="checkboxes.preferences.email" />
+							</div>
+
+							<div class="flex items-center justify-between">
+								<div>
+									<div class="font-medium text-gray-900">
+										Public profile
+									</div>
+									<div class="text-sm text-gray-600">
+										Make profile visible to everyone
+									</div>
+								</div>
+								<GCheckbox v-model="checkboxes.preferences.public" />
+							</div>
+
+							<div class="flex items-center justify-between">
+								<div>
+									<div class="font-medium text-gray-900">
+										Two-factor auth
+									</div>
+									<div class="text-sm text-gray-600">
+										Enable 2FA for security
+									</div>
+								</div>
+								<GCheckbox v-model="checkboxes.preferences.twoFactor" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- DIALOG SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<h1 class="text-3xl font-bold text-gray-900">
+				Dialog Components
+			</h1>
+
+			<!-- BASIC DIALOGS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Basic Dialogs
+				</h2>
+				<p class="text-gray-600">
+					Different dialog sizes and configurations
+				</p>
+
+				<div class="flex flex-wrap gap-4">
+					<GButton
+						variant="primary"
+						@click="dialogs.basic = true"
+					>
+						Open Basic Dialog
+					</GButton>
+
+					<GButton
+						variant="secondary"
+						@click="dialogs.withHeader = true"
+					>
+						Dialog with Header
+					</GButton>
+
+					<GButton
+						variant="success"
+						@click="dialogs.withFooter = true"
+					>
+						Dialog with Footer
+					</GButton>
+				</div>
+
+				<Dialog
+					v-model="dialogs.basic"
+					title="Basic Dialog"
+					size="md"
+				>
+					<DialogBody>
+						<p>This is a basic dialog with default configuration.</p>
+					</DialogBody>
+				</Dialog>
+
+				<Dialog
+					v-model="dialogs.withHeader"
+					title="Dialog with Header"
+					subtitle="Additional context for the dialog"
+					size="md"
+				>
+					<DialogBody>
+						<p>This dialog shows how to use the header with title and subtitle.</p>
+					</DialogBody>
+				</Dialog>
+
+				<Dialog
+					v-model="dialogs.withFooter"
+					title="Dialog with Footer"
+					size="md"
+				>
+					<DialogBody>
+						<p>This dialog includes action buttons in the footer.</p>
+					</DialogBody>
+					<DialogFooter>
+						<GButton appearance="outlined" @click="dialogs.withFooter = false">
+							Cancel
+						</GButton>
+						<GButton variant="primary" @click="dialogs.withFooter = false">
+							Confirm
+						</GButton>
+					</DialogFooter>
+				</Dialog>
+			</section>
+
+			<!-- DIALOG SIZES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Dialog Sizes
+				</h2>
+				<p class="text-gray-600">
+					Small, medium, large, and extra large variants
+				</p>
+
+				<div class="flex flex-wrap gap-4">
+					<GButton size="sm" @click="dialogs.small = true">
+						Small Dialog
+					</GButton>
+
+					<GButton size="md" @click="dialogs.medium = true">
+						Medium Dialog
+					</GButton>
+
+					<GButton size="lg" @click="dialogs.large = true">
+						Large Dialog
+					</GButton>
+
+					<GButton size="lg" @click="dialogs.extraLarge = true">
+						Extra Large Dialog
+					</GButton>
+				</div>
+
+				<Dialog
+					v-model="dialogs.small"
+					title="Small Dialog"
+					size="sm"
+				>
+					<DialogBody>
+						<p>This is a small dialog for compact content.</p>
+					</DialogBody>
+				</Dialog>
+
+				<Dialog
+					v-model="dialogs.medium"
+					title="Medium Dialog"
+					size="md"
+				>
+					<DialogBody>
+						<p>This is a medium dialog, the default size.</p>
+					</DialogBody>
+				</Dialog>
+
+				<Dialog
+					v-model="dialogs.large"
+					title="Large Dialog"
+					size="lg"
+				>
+					<DialogBody>
+						<p>This is a large dialog with more space for content.</p>
+					</DialogBody>
+				</Dialog>
+
+				<Dialog
+					v-model="dialogs.extraLarge"
+					title="Extra Large Dialog"
+					size="xl"
+				>
+					<DialogBody>
+						<p>This is an extra large dialog for maximum content space.</p>
+					</DialogBody>
+				</Dialog>
+			</section>
+
+			<!-- CUSTOM DIALOG -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Custom Dialog
+				</h2>
+				<p class="text-gray-600">
+					Dialog with custom content and configuration
+				</p>
+
+				<GButton variant="danger" @click="dialogs.custom = true">
+					Open Custom Dialog
+				</GButton>
+
+				<Dialog
+					v-model="dialogs.custom"
+					size="lg"
+					:show-close="false"
+				>
+					<DialogHeader
+						title="Delete Confirmation"
+						subtitle="This action cannot be undone"
+					>
+						<DialogCloseTrigger @click="dialogs.custom = false" />
+					</DialogHeader>
+					<DialogBody>
+						<p class="mb-4">Are you sure you want to delete this item?</p>
+						<p class="text-sm text-gray-600">This action will permanently delete the selected item and all associated data.</p>
+					</DialogBody>
+					<DialogFooter space-between>
+						<GButton appearance="outlined" variant="danger" @click="dialogs.custom = false">
+							Delete Anyway
+						</GButton>
+						<div class="flex gap-2">
+							<GButton appearance="outlined" @click="dialogs.custom = false">
+								Cancel
+							</GButton>
+							<GButton variant="danger" @click="dialogs.custom = false">
+								Delete
+							</GButton>
+						</div>
+					</DialogFooter>
+				</Dialog>
+			</section>
+		</div>
+
+		<!-- DRAWER SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<h1 class="text-3xl font-bold text-gray-900">
+				Drawer Components
+			</h1>
+
+			<!-- BASIC DRAWERS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Basic Drawers
+				</h2>
+				<p class="text-gray-600">
+					Different drawer sizes and configurations
+				</p>
+
+				<div class="flex flex-wrap gap-4">
+					<GButton
+						variant="primary"
+						@click="drawers.basic = true"
+					>
+						Open Basic Drawer
+					</GButton>
+
+					<GButton
+						variant="secondary"
+						@click="drawers.withHeader = true"
+					>
+						Drawer with Header
+					</GButton>
+
+					<GButton
+						variant="success"
+						@click="drawers.withFooter = true"
+					>
+						Drawer with Footer
+					</GButton>
+				</div>
+
+				<Drawer
+					v-model="drawers.basic"
+					size="480px"
+				>
+					<DrawerBody>
+						<p>This is a basic drawer with default configuration.</p>
+					</DrawerBody>
+				</Drawer>
+
+				<Drawer
+					v-model="drawers.withHeader"
+					title="Drawer with Header"
+					subtitle="Additional context for the drawer"
+					size="480px"
+				>
+					<DrawerBody>
+						<p>This drawer shows how to use the header with title and subtitle.</p>
+					</DrawerBody>
+				</Drawer>
+
+				<Drawer
+					v-model="drawers.withFooter"
+					title="Drawer with Footer"
+					size="480px"
+				>
+					<DrawerBody>
+						<p>This drawer includes action buttons in the footer.</p>
+					</DrawerBody>
+					<DrawerFooter>
+						<GButton appearance="outlined" @click="drawers.withFooter = false">
+							Cancel
+						</GButton>
+						<GButton variant="primary" @click="drawers.withFooter = false">
+							Confirm
+						</GButton>
+					</DrawerFooter>
+				</Drawer>
+			</section>
+
+			<!-- DRAWER SIZES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Drawer Sizes
+				</h2>
+				<p class="text-gray-600">
+					Small, medium, large, and extra large variants
+				</p>
+
+				<div class="flex flex-wrap gap-4">
+					<GButton @click="drawers.small = true">
+						Small (280px)
+					</GButton>
+
+					<GButton @click="drawers.medium = true">
+						Medium (480px)
+					</GButton>
+
+					<GButton @click="drawers.large = true">
+						Large (640px)
+					</GButton>
+
+					<GButton @click="drawers.extraLarge = true">
+						Extra Large (800px)
+					</GButton>
+				</div>
+
+				<Drawer
+					v-model="drawers.small"
+					size="280px"
+					title="Small Drawer"
+				>
+					<DrawerBody>
+						<p>This is a small drawer for compact content.</p>
+					</DrawerBody>
+				</Drawer>
+
+				<Drawer
+					v-model="drawers.medium"
+					size="480px"
+					title="Medium Drawer"
+				>
+					<DrawerBody>
+						<p>This is a medium drawer, the default size.</p>
+					</DrawerBody>
+				</Drawer>
+
+				<Drawer
+					v-model="drawers.large"
+					size="640px"
+					title="Large Drawer"
+				>
+					<DrawerBody>
+						<p>This is a large drawer with more space for content.</p>
+					</DrawerBody>
+				</Drawer>
+
+				<Drawer
+					v-model="drawers.extraLarge"
+					size="800px"
+					title="Extra Large Drawer"
+				>
+					<DrawerBody>
+						<p>This is an extra large drawer for maximum content space.</p>
+					</DrawerBody>
+				</Drawer>
+			</section>
+
+			<!-- CUSTOM DRAWER -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold text-gray-800">
+					Custom Drawer
+				</h2>
+				<p class="text-gray-600">
+					Drawer with form and custom content
+				</p>
+
+				<GButton variant="brand" @click="drawers.custom = true">
+					Open Settings Drawer
+				</GButton>
+
+				<Drawer
+					v-model="drawers.custom"
+					title="Settings"
+					subtitle="Configure your preferences"
+					size="480px"
+				>
+					<DrawerBody>
+						<div class="space-y-4">
+							<div>
+								<h3 class="font-medium mb-2">General Settings</h3>
+								<div class="space-y-3">
+									<div class="flex items-center justify-between">
+										<div>
+											<div class="font-medium">Email Notifications</div>
+											<div class="text-sm text-gray-600">Receive email updates</div>
+										</div>
+										<GCheckbox v-model="drawerSettings.email" />
+									</div>
+
+									<div class="flex items-center justify-between">
+										<div>
+											<div class="font-medium">Push Notifications</div>
+											<div class="text-sm text-gray-600">Get push notifications</div>
+										</div>
+										<GCheckbox v-model="drawerSettings.push" />
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<h3 class="font-medium mb-2">Preferences</h3>
+								<GInput
+									v-model="drawerSettings.username"
+									label="Username"
+									label-variant="floating"
+									placeholder="Enter username"
+								/>
+							</div>
+						</div>
+					</DrawerBody>
+					<DrawerFooter>
+						<GButton appearance="outlined" @click="drawers.custom = false">
+							Cancel
+						</GButton>
+						<GButton variant="primary" @click="drawers.custom = false">
+							Save Changes
+						</GButton>
+					</DrawerFooter>
+				</Drawer>
+			</section>
+		</div>
+
 		<!-- THEME TOGGLE SECTION -->
 		<div class="space-y-10 border-t pt-10">
 			<div class="flex items-center justify-between">
@@ -925,6 +1599,20 @@
 						Current theme: <span class="font-semibold">{{ currentTheme }}</span>
 					</p>
 				</div>
+				<div class="flex items-center gap-4">
+					<GThemeToggle />
+					<div class="text-sm text-gray-600">
+						Click theme button to change themes
+					</div>
+				</div>
+			</div>
+				<div class="flex items-center gap-4">
+					<GThemeToggle />
+					<div class="text-sm text-gray-600">
+						Click theme button to change themes
+					</div>
+				</div>
+			</div>
 				<div class="flex items-center gap-4">
 					<GThemeToggle />
 					<div class="text-sm text-gray-600">
@@ -992,6 +1680,8 @@
 <script setup lang="ts">
 import { reactive, computed } from 'vue';
 import { useTheme } from './composables/useTheme';
+import Dialog, { DialogHeader, DialogBody, DialogFooter, DialogCloseTrigger } from './components/dialog';
+import Drawer, { DrawerHeader, DrawerBody, DrawerFooter, DrawerCloseTrigger } from './components/drawer';
 
 type Variant =
 	| 'primary'
@@ -1115,6 +1805,63 @@ const cardLayoutStats = reactive({
 	active: 892,
 	pending: 87,
 	inactive: 45,
+});
+
+// Radio examples
+const radios = reactive({
+	basic: 'option1',
+	border: 'plan-a',
+	disabled: 'disabled1',
+	invalid: 'invalid1',
+});
+
+// Checkbox examples
+const checkboxes = reactive({
+	basic1: false,
+	basic2: false,
+	basic3: false,
+	border1: false,
+	border2: false,
+	border3: false,
+	checked: true,
+	disabled: false,
+	invalid1: false,
+	invalid2: false,
+	preferences: {
+		email: true,
+		public: false,
+		twoFactor: false,
+	},
+});
+
+// Dialog examples
+const dialogs = reactive({
+	basic: false,
+	withHeader: false,
+	withFooter: false,
+	small: false,
+	medium: false,
+	large: false,
+	extraLarge: false,
+	custom: false,
+});
+
+// Drawer examples
+const drawers = reactive({
+	basic: false,
+	withHeader: false,
+	withFooter: false,
+	small: false,
+	medium: false,
+	large: false,
+	extraLarge: false,
+	custom: false,
+});
+
+const drawerSettings = reactive({
+	email: true,
+	push: false,
+	username: '',
 });
 
 // Theme management
