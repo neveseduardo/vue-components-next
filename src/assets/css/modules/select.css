@@ -79,41 +79,43 @@
 	width: 100%;
 }
 
-/* Force Element Plus Select to use our custom variables */
+/* Force Element Plus Select to use our custom variables 
+   NOTE: Only override colors, not layout/borders when using InputWrapper */
 :deep(.el-select__wrapper) {
-	background-color: var(--g-select-bg);
-	border: var(--g-select-border-width) solid var(--g-select-border-color);
-	border-radius: var(--g-select-border-radius);
+	background-color: transparent;
+	border: 1px solid transparent;
 	color: var(--g-select-text-color);
 	font-size: var(--g-select-font-size);
 	line-height: var(--g-select-line-height);
-	padding: var(--g-select-padding-vertical) var(--g-select-padding-horizontal);
+	padding: 0;
 	transition: all var(--g-select-transition-duration) ease;
-	min-height: var(--g-select-height);
+	min-height: auto;
 	box-shadow: none;
+	/* Use default Element Plus height when inside InputWrapper */
+	height: auto;
 }
 
 :deep(.el-select__wrapper:hover) {
-	border-color: var(--color-border-secondary);
+	border-color: transparent;
 }
 
 :deep(.el-select__wrapper.is-focused) {
-	border-color: var(--g-select-border-color-focus);
-	box-shadow: 0 0 0 var(--g-select-focus-shadow-size) color-mix(in srgb, var(--g-select-border-color-focus) 10%, transparent);
+	border-color: transparent;
+	box-shadow: none;
 }
 
 :deep(.el-select__wrapper.is-disabled) {
-	background-color: var(--g-select-bg-disabled);
+	background-color: transparent;
 	color: var(--g-select-text-color-disabled);
 	cursor: not-allowed;
 }
 
 :deep(.el-select__wrapper.is-invalid) {
-	border-color: var(--g-select-border-color-invalid);
+	border-color: transparent;
 }
 
 :deep(.el-select__wrapper.is-invalid.is-focused) {
-	box-shadow: 0 0 0 var(--g-select-focus-shadow-size) color-mix(in srgb, var(--g-select-border-color-invalid) 10%, transparent);
+	box-shadow: none;
 }
 
 /* Input field inside select */
