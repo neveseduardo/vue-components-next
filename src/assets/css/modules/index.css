@@ -1,5 +1,7 @@
 @import './button.css';
 @import './input.css';
+@import './select.css';
+@import './datepicker.css';
 @import './dropdown.css';
 @import './switch.css';
 @import './theme-toggler.css';

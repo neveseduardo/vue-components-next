@@ -1,7 +1,13 @@
 <template>
-	<div
-		class="g-select"
-		:class="classes"
+	<InputWrapper
+		:label="label"
+		:label-variant="labelVariant === 'in' ? 'floating' : labelVariant"
+		:focused="focused"
+		:has-value="!isEmpty(mutableValue)"
+		:disabled="disabled"
+		:invalid="invalid"
+		:size="size"
+		:loading="loading"
 	>
 		<ElSelect
 			:id="selectId"
@@ -32,12 +38,13 @@
 				/>
 			</template>
 		</ElSelect>
-	</div>
+	</InputWrapper>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, nextTick, useAttrs, watch } from 'vue';
 import { ElSelect, ElOption } from 'element-plus';
+import InputWrapper from '../inputwrapper/InputWrapper.vue';
 
 interface Option {
 	label: string;
@@ -49,7 +56,7 @@ interface Props {
 	modelValue?: any;
 	options?: Option[];
 	label?: string;
-	labelVariant?: 'in' | 'on' | 'over';
+	labelVariant?: 'floating' | 'static' | 'placeholder';
 	multiple?: boolean;
 	invalid?: boolean;
 	disabled?: boolean;
@@ -58,13 +65,14 @@ interface Props {
 	icon?: string | { name: string; provide?: string; type?: string };
 	allowCreate?: boolean;
 	clearable?: boolean;
+	size?: 'sm' | 'md' | 'lg';
 }
 
 const props = withDefaults(defineProps<Props>(), {
 	modelValue: null,
 	options: () => [],
 	label: '',
-	labelVariant: 'in',
+	labelVariant: 'floating',
 	multiple: false,
 	invalid: false,
 	disabled: false,
@@ -73,6 +81,7 @@ const props = withDefaults(defineProps<Props>(), {
 	icon: '',
 	allowCreate: false,
 	clearable: true,
+	size: 'md',
 });
 
 const emit = defineEmits<{
@@ -154,7 +163,7 @@ const classes = computed(() => ({
 	'is-invalid': props.invalid,
 	'is-loading': props.loading,
 	'g-select--multiple': props.multiple,
-	[`g-select--${props.labelVariant}`]: props.label,
+	[`g-select--${props.size}`]: props.size !== 'md',
 }));
 
 const isEmpty = (value: any): boolean => {

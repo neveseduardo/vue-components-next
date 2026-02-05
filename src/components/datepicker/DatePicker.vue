@@ -1,7 +1,12 @@
 <template>
-	<div
-		class="g-date-picker"
-		:class="classes"
+	<InputWrapper
+		:label="label"
+		:label-variant="labelVariant === 'in' ? 'floating' : labelVariant"
+		:focused="focus"
+		:has-value="!isEmpty(mutableValue)"
+		:disabled="disabled"
+		:loading="loading"
+		:size="size"
 	>
 		<ElDatePicker
 			:id="datePickerId"
@@ -20,23 +25,25 @@
 			@blur="onBlur"
 			@change="onChange"
 		/>
-	</div>
+	</InputWrapper>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, useAttrs, nextTick } from 'vue';
 import { ElDatePicker } from 'element-plus';
+import InputWrapper from '../inputwrapper/InputWrapper.vue';
 
 interface Props {
 	modelValue?: string | number | (string | number)[];
 	disabled?: boolean;
 	type?: 'date' | 'daterange' | 'year' | 'month';
 	label?: string;
-	labelVariant?: 'in' | 'on' | 'over';
+	labelVariant?: 'floating' | 'static' | 'placeholder';
 	loading?: boolean;
 	hiddenFilter?: boolean;
 	pickerOptions?: any;
 	suffix?: boolean;
+	size?: 'sm' | 'md' | 'lg';
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -44,7 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
 	disabled: false,
 	type: 'date',
 	label: '',
-	labelVariant: 'in',
+	labelVariant: 'floating',
 	loading: false,
 	hiddenFilter: false,
 	pickerOptions: () => ({
@@ -53,6 +60,7 @@ const props = withDefaults(defineProps<Props>(), {
 		},
 	}),
 	suffix: true,
+	size: 'md',
 });
 
 const emit = defineEmits<{
@@ -70,13 +78,6 @@ const datePickerId = computed(() => attrs.id as string || `date-picker-${Math.ra
 
 const mutableValue = computed({
 	get(): any {
-		const classes = computed(() => ({
-			'is-disabled': props.disabled,
-			'is-loading': props.loading,
-			[`g-date-picker--${props.type}`]: props.type,
-			[`g-date-picker--${props.labelVariant}`]: props.label,
-		}));
-
 		focused.value = !isEmpty(props.modelValue);
 		return props.modelValue;
 	},
@@ -117,8 +118,8 @@ const onBlur = () => {
 const classes = computed(() => ({
 	'is-disabled': props.disabled,
 	'is-loading': props.loading,
-	[`g-date-picker--${props.type}`]: props.type,
-	[`g-date-picker--${props.labelVariant}`]: props.label,
+	[`g-date-picker--${props.type}`]: props.type !== 'date',
+	[`g-date-picker--${props.size}`]: props.size !== 'md',
 }));
 
 const onChange = (value: any) => {
