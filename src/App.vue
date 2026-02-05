@@ -377,6 +377,346 @@
 			</section>
 		</div>
 
+		<!-- SELECT SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<h1 class="text-3xl font-bold">
+				Select Components
+			</h1>
+
+			<!-- BASIC SELECTS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold">
+					Basic Selects
+				</h2>
+				<p>
+					Different select configurations and states
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+					<div class="space-y-2">
+						<GSelect
+							v-model="selects.basic"
+							label="Single Select"
+							:options="selectOptions.countries"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GSelect
+							v-model="selects.multiple"
+							label="Multiple Select"
+							:multiple="true"
+							:options="selectOptions.countries"
+							:clearable="true"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GSelect
+							v-model="selects.searchable"
+							label="Searchable Select"
+							:options="selectOptions.countries"
+							:clearable="true"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GSelect
+							v-model="selects.withLabel"
+							label="Static Label"
+							label-variant="static"
+							:options="selectOptions.countries"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GSelect
+							v-model="selects.placeholder"
+							label="Placeholder Style"
+							label-variant="placeholder"
+							:options="selectOptions.countries"
+							placeholder="Choose a country"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GSelect
+							v-model="selects.disabled"
+							label="Disabled Select"
+							:disabled="true"
+							:options="selectOptions.countries"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- SELECT SIZES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold">
+					Select Sizes
+				</h2>
+				<p>
+					Small, medium, and large variants
+				</p>
+
+				<div class="space-y-4">
+					<div class="flex items-center gap-4">
+						<div class="w-16 text-sm font-medium">
+							Small:
+						</div>
+						<GSelect
+							size="sm"
+							label="Small select"
+							:options="selectOptions.sizes"
+							class="max-w-xs"
+						/>
+					</div>
+
+					<div class="flex items-center gap-4">
+						<div class="w-16 text-sm font-medium">
+							Medium:
+						</div>
+						<GSelect
+							size="md"
+							label="Medium select"
+							:options="selectOptions.sizes"
+							class="max-w-xs"
+						/>
+					</div>
+
+					<div class="flex items-center gap-4">
+						<div class="w-16 text-sm font-medium">
+							Large:
+						</div>
+						<GSelect
+							size="lg"
+							label="Large select"
+							:options="selectOptions.sizes"
+							class="max-w-xs"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- SELECT STATES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold">
+					Select States
+				</h2>
+				<p>
+					Disabled, loading, and invalid states
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2">
+					<div class="space-y-4">
+						<GSelect
+							v-model="selects.normal"
+							label="Normal State"
+							:options="selectOptions.states"
+						/>
+
+						<GSelect
+							:disabled="true"
+							label="Disabled State"
+							value="disabled"
+							:options="selectOptions.states"
+						/>
+
+						<GSelect
+							:loading="true"
+							label="Loading State"
+							:options="selectOptions.states"
+						/>
+					</div>
+
+					<div class="space-y-4">
+						<GSelect
+							v-model="selects.invalid"
+							label="Invalid State"
+							:invalid="true"
+							:options="selectOptions.states"
+						/>
+
+						<GSelect
+							v-model="selects.clearable"
+							label="Clearable Select"
+							:clearable="true"
+							:options="selectOptions.states"
+						/>
+
+						<GSelect
+							v-model="selects.create"
+							label="Allow Create"
+							:allow-create="true"
+							:clearable="true"
+							:options="selectOptions.states"
+						/>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- DATE PICKER SECTION -->
+		<div class="space-y-10 border-t pt-10">
+			<h1 class="text-3xl font-bold">
+				Date Picker Components
+			</h1>
+
+			<!-- BASIC DATE PICKERS -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold">
+					Basic Date Pickers
+				</h2>
+				<p>
+					Different date picker types and configurations
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+					<div class="space-y-2">
+						<GDatePicker
+							v-model="datepickers.date"
+							label="Date Picker"
+							type="date"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GDatePicker
+							v-model="datepickers.daterange"
+							label="Date Range"
+							type="daterange"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GDatePicker
+							v-model="datepickers.year"
+							label="Year Picker"
+							type="year"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GDatePicker
+							v-model="datepickers.month"
+							label="Month Picker"
+							type="month"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GDatePicker
+							v-model="datepickers.staticLabel"
+							label="Static Label"
+							label-variant="static"
+							type="date"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<GDatePicker
+							v-model="datepickers.disabled"
+							label="Disabled"
+							:disabled="true"
+							type="date"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- DATE PICKER SIZES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold">
+					Date Picker Sizes
+				</h2>
+				<p>
+					Small, medium, and large variants
+				</p>
+
+				<div class="space-y-4">
+					<div class="flex items-center gap-4">
+						<div class="w-16 text-sm font-medium">
+							Small:
+						</div>
+						<GDatePicker
+							size="sm"
+							label="Small date picker"
+							type="date"
+							class="max-w-xs"
+						/>
+					</div>
+
+					<div class="flex items-center gap-4">
+						<div class="w-16 text-sm font-medium">
+							Medium:
+						</div>
+						<GDatePicker
+							size="md"
+							label="Medium date picker"
+							type="date"
+							class="max-w-xs"
+						/>
+					</div>
+
+					<div class="flex items-center gap-4">
+						<div class="w-16 text-sm font-medium">
+							Large:
+						</div>
+						<GDatePicker
+							size="lg"
+							label="Large date picker"
+							type="date"
+							class="max-w-xs"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- DATE PICKER STATES -->
+			<section class="space-y-4">
+				<h2 class="text-xl font-semibold">
+					Date Picker States
+				</h2>
+				<p>
+					Disabled and loading states
+				</p>
+
+				<div class="grid gap-6 md:grid-cols-2">
+					<div class="space-y-4">
+						<GDatePicker
+							v-model="datepickers.normal"
+							label="Normal State"
+							type="date"
+						/>
+
+						<GDatePicker
+							:disabled="true"
+							label="Disabled State"
+							value="2024-01-01"
+							type="date"
+						/>
+					</div>
+
+					<div class="space-y-4">
+						<GDatePicker
+							v-model="datepickers.loading"
+							label="Loading State"
+							:loading="true"
+							type="date"
+						/>
+
+						<GDatePicker
+							v-model="datepickers.placeholder"
+							label="Placeholder Style"
+							label-variant="placeholder"
+							type="date"
+							placeholder="Select a date"
+						/>
+					</div>
+				</div>
+			</section>
+		</div>
+
 		<!-- BUTTONS SECTION -->
 		<div class="space-y-10 border-t pt-10">
 			<h1 class="text-3xl font-bold">
@@ -1962,6 +2302,61 @@ const checkboxes = reactive({
 		public: false,
 		twoFactor: false,
 	},
+});
+
+// Select examples
+const selects = reactive({
+	basic: '',
+	multiple: [],
+	searchable: '',
+	withLabel: '',
+	placeholder: '',
+	disabled: 'disabled',
+	normal: 'active',
+	invalid: '',
+	clearable: '',
+	create: '',
+});
+
+// Date Picker examples
+const datepickers = reactive({
+	date: '',
+	daterange: [],
+	year: '',
+	month: '',
+	staticLabel: '',
+	disabled: '2024-01-01',
+	normal: '',
+	loading: '',
+	placeholder: '',
+});
+
+// Select options
+const selectOptions = reactive({
+	countries: [
+		{ label: 'United States', value: 'us' },
+		{ label: 'Canada', value: 'ca' },
+		{ label: 'United Kingdom', value: 'uk' },
+		{ label: 'Germany', value: 'de' },
+		{ label: 'France', value: 'fr' },
+		{ label: 'Brazil', value: 'br' },
+		{ label: 'Japan', value: 'jp' },
+		{ label: 'Australia', value: 'au' },
+	],
+	sizes: [
+		{ label: 'Extra Small', value: 'xs' },
+		{ label: 'Small', value: 'sm' },
+		{ label: 'Medium', value: 'md' },
+		{ label: 'Large', value: 'lg' },
+		{ label: 'Extra Large', value: 'xl' },
+	],
+	states: [
+		{ label: 'Active', value: 'active' },
+		{ label: 'Inactive', value: 'inactive' },
+		{ label: 'Pending', value: 'pending' },
+		{ label: 'Completed', value: 'completed' },
+		{ label: 'Cancelled', value: 'cancelled' },
+	],
 });
 
 // Dialog examples
