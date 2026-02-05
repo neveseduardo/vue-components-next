@@ -85,43 +85,43 @@
 	width: 100%;
 }
 
-/* Force Element Plus Date Picker to use our custom variables
-   NOTE: Only override colors, not layout/borders when using InputWrapper */
+
+
+/* Force Element Plus Date Picker to use our custom variables and override InputWrapper */
 :deep(.el-input__wrapper) {
-	background-color: transparent;
-	border: 1px solid transparent;
-	color: var(--g-date-picker-text-color);
-	font-size: var(--g-date-picker-font-size);
-	line-height: var(--g-date-picker-line-height);
-	padding: 0;
-	transition: all var(--g-date-picker-transition-duration) ease;
-	min-height: auto;
-	box-shadow: none;
-	/* Use default Element Plus height when inside InputWrapper */
-	height: auto;
+	background-color: var(--g-date-picker-bg) !important;
+	border: var(--g-date-picker-border-width) solid var(--g-date-picker-border-color) !important;
+	border-radius: var(--g-date-picker-border-radius) !important;
+	color: var(--g-date-picker-text-color) !important;
+	font-size: var(--g-date-picker-font-size) !important;
+	line-height: var(--g-date-picker-line-height) !important;
+	padding: var(--g-date-picker-padding-vertical) var(--g-date-picker-padding-horizontal) !important;
+	transition: all var(--g-date-picker-transition-duration) ease !important;
+	min-height: var(--g-date-picker-height) !important;
+	box-shadow: none !important;
 }
 
 :deep(.el-input__wrapper:hover) {
-	border-color: transparent;
+	border-color: var(--color-border-secondary) !important;
 }
 
 :deep(.el-input__wrapper.is-focus) {
-	border-color: transparent;
-	box-shadow: none;
+	border-color: var(--g-date-picker-border-color-focus) !important;
+	box-shadow: 0 0 0 var(--g-date-picker-focus-shadow-size) color-mix(in srgb, var(--g-date-picker-border-color-focus) 10%, transparent) !important;
 }
 
 :deep(.el-input__wrapper.is-disabled) {
-	background-color: transparent;
-	color: var(--g-date-picker-text-color-disabled);
-	cursor: not-allowed;
+	background-color: var(--g-date-picker-bg-disabled) !important;
+	color: var(--g-date-picker-text-color-disabled) !important;
+	cursor: not-allowed !important;
 }
 
 :deep(.el-input__wrapper.is-invalid) {
-	border-color: transparent;
+	border-color: var(--g-date-picker-border-color-invalid) !important;
 }
 
 :deep(.el-input__wrapper.is-invalid.is-focus) {
-	box-shadow: none;
+	box-shadow: 0 0 0 var(--g-date-picker-focus-shadow-size) color-mix(in srgb, var(--g-date-picker-border-color-invalid) 10%, transparent) !important;
 }
 
 /* Input field inside date picker */
