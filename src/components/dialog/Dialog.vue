@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue';
+import { computed, provide, useAttrs, useSlots } from 'vue';
 import { ElDialog, ElLoading } from 'element-plus';
 import DialogHeader from './DialogHeader.vue';
 import DialogBody from './DialogBody.vue';
@@ -140,6 +140,10 @@ const open = () => {
 const close = () => {
 	emit('update:modelValue', false);
 };
+
+provide('dialog', {
+	close,
+});
 
 defineExpose({
 	open,

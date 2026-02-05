@@ -1,5 +1,6 @@
 <template>
 	<ElDrawer
+		ref="draweRef"
 		v-model="mutableVisible"
 		class="g-drawer"
 		:class="classes"
@@ -19,6 +20,7 @@
 			:fullscreen="false"
 			:lock="true"
 		/>
+
 		<slot>
 			<slot name="header">
 				<DrawerHeader
@@ -57,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue';
+import { computed, useAttrs, useSlots, ref, provide } from 'vue';
 import { ElDrawer, ElLoading } from 'element-plus';
 import DrawerHeader from './DrawerHeader.vue';
 import DrawerBody from './DrawerBody.vue';
@@ -127,6 +129,10 @@ const open = () => {
 const close = () => {
 	emit('update:modelValue', false);
 };
+
+provide('drawer', {
+	close,
+});
 
 defineExpose({
 	open,
