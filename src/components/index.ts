@@ -19,8 +19,19 @@ import Accordion from './accordion/Accordion.vue';
 import Tooltip from './tooltip/Tooltip.vue';
 import Pagination from './pagination/Pagination.vue';
 import Input from './input/Input.vue';
-import ThemeToggle from './theme-toggle/ThemeToggle.vue';
+import ThemeToggle from './theme-toggler/ThemeToggle.vue';
 import { Card, CardHeader, CardBody, CardFooter } from './card';
+import { Dialog, DialogHeader, DialogBody, DialogFooter, DialogCloseTrigger } from './dialog';
+import { Drawer, DrawerHeader, DrawerBody, DrawerFooter, DrawerCloseTrigger } from './drawer';
+import Dropdown from './dropdown/Dropdown.vue';
+import InputWrapper from './inputwrapper/InputWrapper.vue';
+import { Stepper, StepperItem } from './stepper';
+import Table from './table/Table.vue';
+import TableColumn from './table/TableColumn.vue';
+import Tabs from './tabs/Tabs.vue';
+import Tab from './tabs/Tab.vue';
+import TabContent from './tabs/TabContent.vue';
+import Toast from './toast/Toast.vue';
 
 export {
 	Button,
@@ -46,6 +57,26 @@ export {
 	CardHeader,
 	CardBody,
 	CardFooter,
+	Dialog,
+	DialogHeader,
+	DialogBody,
+	DialogFooter,
+	DialogCloseTrigger,
+	Drawer,
+	DrawerHeader,
+	DrawerBody,
+	DrawerFooter,
+	DrawerCloseTrigger,
+	Dropdown,
+	InputWrapper,
+	Stepper,
+	StepperItem,
+	Table,
+	TableColumn,
+	Tabs,
+	Tab,
+	TabContent,
+	Toast,
 };
 
 export default {
@@ -73,5 +104,25 @@ export default {
 		app.component('CardHeader', CardHeader);
 		app.component('CardBody', CardBody);
 		app.component('CardFooter', CardFooter);
+		app.component('GDialog', Dialog);
+		app.component('GDialogHeader', DialogHeader);
+		app.component('GDialogBody', DialogBody);
+		app.component('GDialogFooter', DialogFooter);
+		app.component('GDialogCloseTrigger', DialogCloseTrigger);
+		app.component('GDrawer', Drawer);
+		app.component('GDrawerHeader', DrawerHeader);
+		app.component('GDrawerBody', DrawerBody);
+		app.component('GDrawerFooter', DrawerFooter);
+		app.component('GDrawerCloseTrigger', DrawerCloseTrigger);
+		app.component('GDropdown', Dropdown);
+		app.component('GInputWrapper', InputWrapper);
+		app.component('GStepper', Stepper);
+		app.component('GStepperItem', StepperItem);
+		app.component('GTable', Table);
+		app.component('GTableColumn', TableColumn);
+		app.component('GTabs', Tabs);
+		app.component('GTab', Tab);
+		app.component('GTabContent', TabContent);
+		app.component('GToast', Toast);
 	},
 };
