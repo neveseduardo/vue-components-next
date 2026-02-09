@@ -1,0 +1,295 @@
+/* ======================================================
+ * Badge CSS Variables
+ * ====================================================== */
+:root {
+	/* Base Dimensions */
+	--g-badge-border-radius: 9999px;
+	--g-badge-border-width: 1px;
+	--g-badge-font-size: 0.75rem;
+	--g-badge-font-weight: 600;
+	--g-badge-line-height: 1;
+	--g-badge-padding-x: 0.5rem;
+	--g-badge-padding-y: 0.25rem;
+	--g-badge-min-height: 1.25rem;
+
+	/* Colors */
+	--g-badge-bg: var(--color-neutral-20);
+	--g-badge-color: #fff;
+	--g-badge-border-color: var(--color-neutral-20);
+	
+	/* Variant Colors */
+	--g-badge-primary-bg: var(--color-primary-key);
+	--g-badge-primary-color: #fff;
+	--g-badge-primary-border-color: var(--color-primary-key);
+	
+	--g-badge-secondary-bg: var(--color-neutral-50);
+	--g-badge-secondary-color: #fff;
+	--g-badge-secondary-border-color: var(--color-neutral-50);
+	
+	--g-badge-success-bg: var(--color-success-50);
+	--g-badge-success-color: #fff;
+	--g-badge-success-border-color: var(--color-success-50);
+	
+	--g-badge-danger-bg: var(--color-danger-key);
+	--g-badge-danger-color: #fff;
+	--g-badge-danger-border-color: var(--color-danger-key);
+	
+	--g-badge-warning-bg: var(--color-warning-key);
+	--g-badge-warning-color: var(--color-warning-20);
+	--g-badge-warning-border-color: var(--color-warning-key);
+	
+	--g-badge-info-bg: var(--color-info-50);
+	--g-badge-info-color: #fff;
+	--g-badge-info-border-color: var(--color-info-50);
+	
+	--g-brand-badge-bg: var(--color-brand-key);
+	--g-brand-badge-color: #fff;
+	--g-brand-badge-border-color: var(--color-brand-key);
+
+	/* Outline Variant Colors */
+	--g-badge-outline-bg: transparent;
+	--g-badge-outline-primary-color: var(--color-primary-key);
+	--g-badge-outline-primary-border-color: var(--color-primary-key);
+	--g-badge-outline-secondary-color: var(--color-neutral-60);
+	--g-badge-outline-secondary-border-color: var(--color-neutral-60);
+	--g-badge-outline-success-color: var(--color-success-50);
+	--g-badge-outline-success-border-color: var(--color-success-50);
+	--g-badge-outline-danger-color: var(--color-danger-key);
+	--g-badge-outline-danger-border-color: var(--color-danger-key);
+	--g-badge-outline-warning-color: var(--color-warning-key);
+	--g-badge-outline-warning-border-color: var(--color-warning-key);
+	--g-badge-outline-info-color: var(--color-info-50);
+	--g-badge-outline-info-border-color: var(--color-info-50);
+	--g-badge-outline-brand-color: var(--color-brand-key);
+	--g-badge-outline-brand-border-color: var(--color-brand-key);
+
+	/* Sizes */
+	--g-badge-sm-font-size: 0.625rem;
+	--g-badge-sm-padding-x: 0.375rem;
+	--g-badge-sm-padding-y: 0.125rem;
+	--g-badge-sm-min-height: 1rem;
+	
+	--g-badge-md-font-size: 0.75rem;
+	--g-badge-md-padding-x: 0.5rem;
+	--g-badge-md-padding-y: 0.25rem;
+	--g-badge-md-min-height: 1.25rem;
+	
+	--g-badge-lg-font-size: 0.875rem;
+	--g-badge-lg-padding-x: 0.625rem;
+	--g-badge-lg-padding-y: 0.375rem;
+	--g-badge-lg-min-height: 1.5rem;
+
+	/* Transitions */
+	--g-badge-transition: all 0.2s ease-in-out;
+}
+
+.dark {
+	/* Dark theme adjustments */
+	--g-badge-bg: var(--color-neutral-70);
+	--g-badge-color: #fff;
+	--g-badge-border-color: var(--color-neutral-70);
+}
+
+/* ======================================================
+ * Base Badge Styles
+ * ====================================================== */
+.g-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.25rem;
+	
+	min-height: var(--g-badge-min-height);
+	padding: var(--g-badge-padding-y) var(--g-badge-padding-x);
+	
+	border-radius: var(--g-badge-border-radius);
+	border: var(--g-badge-border-width) solid var(--g-badge-border-color);
+	background: var(--g-badge-bg);
+	color: var(--g-badge-color);
+	
+	font-size: var(--g-badge-font-size);
+	font-weight: var(--g-badge-font-weight);
+	line-height: var(--g-badge-line-height);
+	text-align: center;
+	white-space: nowrap;
+	
+	transition: var(--g-badge-transition);
+}
+
+/* ======================================================
+ * Badge Variants
+ * ====================================================== */
+.g-badge--primary {
+	--g-badge-bg: var(--g-badge-primary-bg);
+	--g-badge-color: var(--g-badge-primary-color);
+	--g-badge-border-color: var(--g-badge-primary-border-color);
+}
+
+.g-badge--secondary {
+	--g-badge-bg: var(--g-badge-secondary-bg);
+	--g-badge-color: var(--g-badge-secondary-color);
+	--g-badge-border-color: var(--g-badge-secondary-border-color);
+}
+
+.g-badge--success {
+	--g-badge-bg: var(--g-badge-success-bg);
+	--g-badge-color: var(--g-badge-success-color);
+	--g-badge-border-color: var(--g-badge-success-border-color);
+}
+
+.g-badge--danger {
+	--g-badge-bg: var(--g-badge-danger-bg);
+	--g-badge-color: var(--g-badge-danger-color);
+	--g-badge-border-color: var(--g-badge-danger-border-color);
+}
+
+.g-badge--warning {
+	--g-badge-bg: var(--g-badge-warning-bg);
+	--g-badge-color: var(--g-badge-warning-color);
+	--g-badge-border-color: var(--g-badge-warning-border-color);
+}
+
+.g-badge--info {
+	--g-badge-bg: var(--g-badge-info-bg);
+	--g-badge-color: var(--g-badge-info-color);
+	--g-badge-border-color: var(--g-badge-info-border-color);
+}
+
+.g-badge--brand {
+	--g-badge-bg: var(--g-brand-badge-bg);
+	--g-badge-color: var(--g-brand-badge-color);
+	--g-badge-border-color: var(--g-brand-badge-border-color);
+}
+
+/* ======================================================
+ * Outline Variants
+ * ====================================================== */
+.g-badge--outline {
+	--g-badge-bg: var(--g-badge-outline-bg);
+}
+
+.g-badge--outline.g-badge--primary {
+	--g-badge-color: var(--g-badge-outline-primary-color);
+	--g-badge-border-color: var(--g-badge-outline-primary-border-color);
+}
+
+.g-badge--outline.g-badge--secondary {
+	--g-badge-color: var(--g-badge-outline-secondary-color);
+	--g-badge-border-color: var(--g-badge-outline-secondary-border-color);
+}
+
+.g-badge--outline.g-badge--success {
+	--g-badge-color: var(--g-badge-outline-success-color);
+	--g-badge-border-color: var(--g-badge-outline-success-border-color);
+}
+
+.g-badge--outline.g-badge--danger {
+	--g-badge-color: var(--g-badge-outline-danger-color);
+	--g-badge-border-color: var(--g-badge-outline-danger-border-color);
+}
+
+.g-badge--outline.g-badge--warning {
+	--g-badge-color: var(--g-badge-outline-warning-color);
+	--g-badge-border-color: var(--g-badge-outline-warning-border-color);
+}
+
+.g-badge--outline.g-badge--info {
+	--g-badge-color: var(--g-badge-outline-info-color);
+	--g-badge-border-color: var(--g-badge-outline-info-border-color);
+}
+
+.g-badge--outline.g-badge--brand {
+	--g-badge-color: var(--g-badge-outline-brand-color);
+	--g-badge-border-color: var(--g-badge-outline-brand-border-color);
+}
+
+/* ======================================================
+ * Badge Sizes
+ * ====================================================== */
+.g-badge--sm {
+	--g-badge-font-size: var(--g-badge-sm-font-size);
+	--g-badge-padding-x: var(--g-badge-sm-padding-x);
+	--g-badge-padding-y: var(--g-badge-sm-padding-y);
+	--g-badge-min-height: var(--g-badge-sm-min-height);
+}
+
+.g-badge--md {
+	--g-badge-font-size: var(--g-badge-md-font-size);
+	--g-badge-padding-x: var(--g-badge-md-padding-x);
+	--g-badge-padding-y: var(--g-badge-md-padding-y);
+	--g-badge-min-height: var(--g-badge-md-min-height);
+}
+
+.g-badge--lg {
+	--g-badge-font-size: var(--g-badge-lg-font-size);
+	--g-badge-padding-x: var(--g-badge-lg-padding-x);
+	--g-badge-padding-y: var(--g-badge-lg-padding-y);
+	--g-badge-min-height: var(--g-badge-lg-min-height);
+}
+
+/* ======================================================
+ * Badge States
+ * ====================================================== */
+.g-badge--square {
+	border-radius: 0.25rem;
+}
+
+.g-badge--rounded {
+	border-radius: 0.5rem;
+}
+
+.g-badge.is-clickable {
+	cursor: pointer;
+}
+
+.g-badge.is-clickable:hover {
+	transform: scale(1.05);
+	opacity: 0.9;
+}
+
+.g-badge.is-clickable:active {
+	transform: scale(0.95);
+}
+
+/* ======================================================
+ * Badge Content
+ * ====================================================== */
+.g-badge__icon {
+	width: 0.875em;
+	height: 0.875em;
+	flex-shrink: 0;
+}
+
+.g-badge__text {
+	line-height: inherit;
+}
+
+/* ======================================================
+ * Badge with Close Button
+ * ====================================================== */
+.g-badge__close {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1em;
+	height: 1em;
+	margin-left: 0.25rem;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.2);
+	color: currentColor;
+	cursor: pointer;
+	transition: var(--g-badge-transition);
+	font-size: 0.75em;
+}
+
+.g-badge__close:hover {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.g-badge--outline .g-badge__close {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.g-badge--outline .g-badge__close:hover {
+	background: rgba(0, 0, 0, 0.2);
+}
