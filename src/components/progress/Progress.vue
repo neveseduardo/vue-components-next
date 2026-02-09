@@ -56,6 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
 		{ color: '#6f7ad3', percentage: 100 },
 	],
 	animated: true,
+	format: (percentage: number) => `${percentage}%`,
 });
 
 const animatedValue = ref(0);

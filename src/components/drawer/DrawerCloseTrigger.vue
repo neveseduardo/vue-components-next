@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { inject } from 'vue';
 import GIcon from '../icon/Icon.vue';
-import GButton from './Button.vue';
+import GButton from '../button/Button.vue';
 
 interface Props {
 	disabled?: boolean;

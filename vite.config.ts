@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
 					formats: ['es', 'umd'],
 				},
 				rollupOptions: {
-					external: ['vue'],
+					external: ['vue', '@iconify/vue'],
 					output: {
 						globals: {
 							vue: 'Vue',

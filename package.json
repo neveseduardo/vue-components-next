@@ -29,6 +29,7 @@
 		"build-storybook": "storybook build"
 	},
 	"peerDependencies": {
+		"@iconify/vue": "^5.0.0",
 		"vue": "^3.4.0"
 	},
 	"dependencies": {
