@@ -1,0 +1,588 @@
+/* ======================================================
+ * Tag CSS Variables
+ * ====================================================== */
+:root {
+	/* Base Dimensions */
+	--g-tag-border-radius: 9999px;
+	--g-tag-border-width: 1px;
+	--g-tag-font-size: 0.75rem;
+	--g-tag-font-weight: 500;
+	--g-tag-line-height: 1.25;
+	--g-tag-padding-x: 0.5rem;
+	--g-tag-padding-y: 0.25rem;
+	--g-tag-gap: 0.25rem;
+	--g-tag-min-height: 1.5rem;
+	
+	/* Colors */
+	--g-tag-bg: var(--color-neutral-20);
+	--g-tag-color: #fff;
+	--g-tag-border-color: var(--color-neutral-20);
+	
+	/* Color Variants */
+	--g-tag-primary-bg: var(--color-primary-key);
+	--g-tag-primary-color: #fff;
+	--g-tag-primary-border-color: var(--color-primary-key);
+	
+	--g-tag-secondary-bg: var(--color-neutral-50);
+	--g-tag-secondary-color: #fff;
+	--g-tag-secondary-border-color: var(--color-neutral-50);
+	
+	--g-tag-success-bg: var(--color-success-50);
+	--g-tag-success-color: #fff;
+	--g-tag-success-border-color: var(--color-success-50);
+	
+	--g-tag-danger-bg: var(--color-danger-key);
+	--g-tag-danger-color: #fff;
+	--g-tag-danger-border-color: var(--color-danger-key);
+	
+	--g-tag-warning-bg: var(--color-warning-key);
+	--g-tag-warning-color: var(--color-warning-20);
+	--g-tag-warning-border-color: var(--color-warning-key);
+	
+	--g-tag-info-bg: var(--color-info-50);
+	--g-tag-info-color: #fff;
+	--g-tag-info-border-color: var(--color-info-50);
+	
+	--g-tag-brand-bg: var(--color-brand-key);
+	--g-tag-brand-color: #fff;
+	--g-tag-brand-border-color: var(--color-brand-key);
+	
+	/* Outline Variants */
+	--g-tag-outline-bg: transparent;
+	--g-tag-outline-primary-color: var(--color-primary-key);
+	--g-tag-outline-primary-border-color: var(--color-primary-key);
+	--g-tag-outline-primary-hover-bg: color-mix(in srgb, var(--color-primary-key) 8%, transparent);
+	
+	--g-tag-outline-secondary-color: var(--color-neutral-60);
+	--g-tag-outline-secondary-border-color: var(--color-neutral-60);
+	--g-tag-outline-secondary-hover-bg: color-mix(in srgb, var(--color-neutral-60) 8%, transparent);
+	
+	--g-tag-outline-success-color: var(--color-success-50);
+	--g-tag-outline-success-border-color: var(--color-success-50);
+	--g-tag-outline-success-hover-bg: color-mix(in srgb, var(--color-success-50) 8%, transparent);
+	
+	--g-tag-outline-danger-color: var(--color-danger-key);
+	--g-tag-outline-danger-border-color: var(--color-danger-key);
+	--g-tag-outline-danger-hover-bg: color-mix(in srgb, var(--color-danger-key) 8%, transparent);
+	
+	--g-tag-outline-warning-color: var(--color-warning-key);
+	--g-tag-outline-warning-border-color: var(--color-warning-key);
+	--g-tag-outline-warning-hover-bg: color-mix(in srgb, var(--color-warning-key) 8%, transparent);
+	
+	--g-tag-outline-info-color: var(--color-info-50);
+	--g-tag-outline-info-border-color: var(--color-info-50);
+	--g-tag-outline-info-hover-bg: color-mix(in srgb, var(--color-info-50) 8%, transparent);
+	
+	--g-tag-outline-brand-color: var(--color-brand-key);
+	--g-tag-outline-brand-border-color: var(--color-brand-key);
+	--g-tag-outline-brand-hover-bg: color-mix(in srgb, var(--color-brand-key) 8%, transparent);
+	
+	/* Light Variants */
+	--g-tag-light-primary-bg: color-mix(in srgb, var(--color-primary-key) 10%, transparent);
+	--g-tag-light-primary-color: var(--color-primary-key);
+	--g-tag-light-primary-border-color: var(--color-primary-key);
+	
+	--g-tag-light-success-bg: color-mix(in srgb, var(--color-success-50) 10%, transparent);
+	--g-tag-light-success-color: var(--color-success-50);
+	--g-tag-light-success-border-color: var(--color-success-50);
+	
+	--g-tag-light-danger-bg: color-mix(in srgb, var(--color-danger-key) 10%, transparent);
+	--g-tag-light-danger-color: var(--color-danger-key);
+	--g-tag-light-danger-border-color: var(--color-danger-key);
+	
+	--g-tag-light-warning-bg: color-mix(in srgb, var(--color-warning-key) 10%, transparent);
+	--g-tag-light-warning-color: var(--color-warning-key);
+	--g-tag-light-warning-border-color: var(--color-warning-key);
+	
+	--g-tag-light-info-bg: color-mix(in srgb, var(--color-info-50) 10%, transparent);
+	--g-tag-light-info-color: var(--color-info-50);
+	--g-tag-light-info-border-color: var(--color-info-50);
+	
+	/* Sizes */
+	--g-tag-xs-font-size: 0.625rem;
+	--g-tag-xs-padding-x: 0.375rem;
+	--g-tag-xs-padding-y: 0.125rem;
+	--g-tag-xs-min-height: 1.25rem;
+	
+	--g-tag-sm-font-size: 0.625rem;
+	--g-tag-sm-padding-x: 0.375rem;
+	--g-tag-sm-padding-y: 0.1875rem;
+	--g-tag-sm-min-height: 1.375rem;
+	
+	--g-tag-md-font-size: 0.75rem;
+	--g-tag-md-padding-x: 0.5rem;
+	--g-tag-md-padding-y: 0.25rem;
+	--g-tag-md-min-height: 1.5rem;
+	
+	--g-tag-lg-font-size: 0.875rem;
+	--g-tag-lg-padding-x: 0.625rem;
+	--g-tag-lg-padding-y: 0.3125rem;
+	--g-tag-lg-min-height: 1.75rem;
+	
+	--g-tag-xl-font-size: 1rem;
+	--g-tag-xl-padding-x: 0.75rem;
+	--g-tag-xl-padding-y: 0.375rem;
+	--g-tag-xl-min-height: 2rem;
+	
+	/* Shapes */
+	--g-tag-square-border-radius: 0.25rem;
+	--g-tag-rounded-border-radius: 0.5rem;
+	
+	/* Transitions */
+	--g-tag-transition: all 0.2s ease-in-out;
+	--g-tag-close-transition: transform 0.2s ease-in-out;
+	
+	/* Close Button */
+	--g-tag-close-size: 1rem;
+	--g-tag-close-icon-size: 0.625rem;
+	--g-tag-close-bg: rgba(255, 255, 255, 0.2);
+	--g-tag-close-hover-bg: rgba(255, 255, 255, 0.3);
+	--g-tag-close-outline-bg: rgba(0, 0, 0, 0.1);
+	--g-tag-close-outline-hover-bg: rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+	/* Dark theme adjustments */
+	--g-tag-bg: var(--color-neutral-70);
+	--g-tag-color: #fff;
+	--g-tag-border-color: var(--color-neutral-70);
+	
+	--g-tag-light-primary-bg: color-mix(in srgb, var(--color-primary-key) 15%, transparent);
+	--g-tag-light-success-bg: color-mix(in srgb, var(--color-success-50) 15%, transparent);
+	--g-tag-light-danger-bg: color-mix(in srgb, var(--color-danger-key) 15%, transparent);
+	--g-tag-light-warning-bg: color-mix(in srgb, var(--color-warning-key) 15%, transparent);
+	--g-tag-light-info-bg: color-mix(in srgb, var(--color-info-50) 15%, transparent);
+}
+
+/* ======================================================
+ * Base Tag Styles
+ * ====================================================== */
+.g-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--g-tag-gap);
+	
+	min-height: var(--g-tag-min-height);
+	padding: var(--g-tag-padding-y) var(--g-tag-padding-x);
+	
+	border-radius: var(--g-tag-border-radius);
+	border: var(--g-tag-border-width) solid var(--g-tag-border-color);
+	background: var(--g-tag-bg);
+	color: var(--g-tag-color);
+	
+	font-size: var(--g-tag-font-size);
+	font-weight: var(--g-tag-font-weight);
+	line-height: var(--g-tag-line-height);
+	text-align: center;
+	white-space: nowrap;
+	
+	transition: var(--g-tag-transition);
+	text-decoration: none;
+}
+
+/* ======================================================
+ * Tag Color Variants
+ * ====================================================== */
+.g-tag--primary {
+	--g-tag-bg: var(--g-tag-primary-bg);
+	--g-tag-color: var(--g-tag-primary-color);
+	--g-tag-border-color: var(--g-tag-primary-border-color);
+}
+
+.g-tag--secondary {
+	--g-tag-bg: var(--g-tag-secondary-bg);
+	--g-tag-color: var(--g-tag-secondary-color);
+	--g-tag-border-color: var(--g-tag-secondary-border-color);
+}
+
+.g-tag--success {
+	--g-tag-bg: var(--g-tag-success-bg);
+	--g-tag-color: var(--g-tag-success-color);
+	--g-tag-border-color: var(--g-tag-success-border-color);
+}
+
+.g-tag--danger {
+	--g-tag-bg: var(--g-tag-danger-bg);
+	--g-tag-color: var(--g-tag-danger-color);
+	--g-tag-border-color: var(--g-tag-danger-border-color);
+}
+
+.g-tag--warning {
+	--g-tag-bg: var(--g-tag-warning-bg);
+	--g-tag-color: var(--g-tag-warning-color);
+	--g-tag-border-color: var(--g-tag-warning-border-color);
+}
+
+.g-tag--info {
+	--g-tag-bg: var(--g-tag-info-bg);
+	--g-tag-color: var(--g-tag-info-color);
+	--g-tag-border-color: var(--g-tag-info-border-color);
+}
+
+.g-tag--brand {
+	--g-tag-bg: var(--g-tag-brand-bg);
+	--g-tag-color: var(--g-tag-brand-color);
+	--g-tag-border-color: var(--g-tag-brand-border-color);
+}
+
+/* ======================================================
+ * Tag Style Variants
+ * ====================================================== */
+.g-tag--outline {
+	--g-tag-bg: var(--g-tag-outline-bg);
+}
+
+.g-tag--outline.g-tag--primary {
+	--g-tag-color: var(--g-tag-outline-primary-color);
+	--g-tag-border-color: var(--g-tag-outline-primary-border-color);
+}
+
+.g-tag--outline.g-tag--primary:hover {
+	--g-tag-bg: var(--g-tag-outline-primary-hover-bg);
+}
+
+.g-tag--outline.g-tag--secondary {
+	--g-tag-color: var(--g-tag-outline-secondary-color);
+	--g-tag-border-color: var(--g-tag-outline-secondary-border-color);
+}
+
+.g-tag--outline.g-tag--secondary:hover {
+	--g-tag-bg: var(--g-tag-outline-secondary-hover-bg);
+}
+
+.g-tag--outline.g-tag--success {
+	--g-tag-color: var(--g-tag-outline-success-color);
+	--g-tag-border-color: var(--g-tag-outline-success-border-color);
+}
+
+.g-tag--outline.g-tag--success:hover {
+	--g-tag-bg: var(--g-tag-outline-success-hover-bg);
+}
+
+.g-tag--outline.g-tag--danger {
+	--g-tag-color: var(--g-tag-outline-danger-color);
+	--g-tag-border-color: var(--g-tag-outline-danger-border-color);
+}
+
+.g-tag--outline.g-tag--danger:hover {
+	--g-tag-bg: var(--g-tag-outline-danger-hover-bg);
+}
+
+.g-tag--outline.g-tag--warning {
+	--g-tag-color: var(--g-tag-outline-warning-color);
+	--g-tag-border-color: var(--g-tag-outline-warning-border-color);
+}
+
+.g-tag--outline.g-tag--warning:hover {
+	--g-tag-bg: var(--g-tag-outline-warning-hover-bg);
+}
+
+.g-tag--outline.g-tag--info {
+	--g-tag-color: var(--g-tag-outline-info-color);
+	--g-tag-border-color: var(--g-tag-outline-info-border-color);
+}
+
+.g-tag--outline.g-tag--info:hover {
+	--g-tag-bg: var(--g-tag-outline-info-hover-bg);
+}
+
+.g-tag--outline.g-tag--brand {
+	--g-tag-color: var(--g-tag-outline-brand-color);
+	--g-tag-border-color: var(--g-tag-outline-brand-border-color);
+}
+
+.g-tag--outline.g-tag--brand:hover {
+	--g-tag-bg: var(--g-tag-outline-brand-hover-bg);
+}
+
+/* Light Variants */
+.g-tag--light.g-tag--primary {
+	--g-tag-bg: var(--g-tag-light-primary-bg);
+	--g-tag-color: var(--g-tag-light-primary-color);
+	--g-tag-border-color: var(--g-tag-light-primary-border-color);
+}
+
+.g-tag--light.g-tag--success {
+	--g-tag-bg: var(--g-tag-light-success-bg);
+	--g-tag-color: var(--g-tag-light-success-color);
+	--g-tag-border-color: var(--g-tag-light-success-border-color);
+}
+
+.g-tag--light.g-tag--danger {
+	--g-tag-bg: var(--g-tag-light-danger-bg);
+	--g-tag-color: var(--g-tag-light-danger-color);
+	--g-tag-border-color: var(--g-tag-light-danger-border-color);
+}
+
+.g-tag--light.g-tag--warning {
+	--g-tag-bg: var(--g-tag-light-warning-bg);
+	--g-tag-color: var(--g-tag-light-warning-color);
+	--g-tag-border-color: var(--g-tag-light-warning-border-color);
+}
+
+.g-tag--light.g-tag--info {
+	--g-tag-bg: var(--g-tag-light-info-bg);
+	--g-tag-color: var(--g-tag-light-info-color);
+	--g-tag-border-color: var(--g-tag-light-info-border-color);
+}
+
+/* ======================================================
+ * Tag Size Variants
+ * ====================================================== */
+.g-tag--xs {
+	--g-tag-font-size: var(--g-tag-xs-font-size);
+	--g-tag-padding-x: var(--g-tag-xs-padding-x);
+	--g-tag-padding-y: var(--g-tag-xs-padding-y);
+	--g-tag-min-height: var(--g-tag-xs-min-height);
+}
+
+.g-tag--sm {
+	--g-tag-font-size: var(--g-tag-sm-font-size);
+	--g-tag-padding-x: var(--g-tag-sm-padding-x);
+	--g-tag-padding-y: var(--g-tag-sm-padding-y);
+	--g-tag-min-height: var(--g-tag-sm-min-height);
+}
+
+.g-tag--md {
+	--g-tag-font-size: var(--g-tag-md-font-size);
+	--g-tag-padding-x: var(--g-tag-md-padding-x);
+	--g-tag-padding-y: var(--g-tag-md-padding-y);
+	--g-tag-min-height: var(--g-tag-md-min-height);
+}
+
+.g-tag--lg {
+	--g-tag-font-size: var(--g-tag-lg-font-size);
+	--g-tag-padding-x: var(--g-tag-lg-padding-x);
+	--g-tag-padding-y: var(--g-tag-lg-padding-y);
+	--g-tag-min-height: var(--g-tag-lg-min-height);
+}
+
+.g-tag--xl {
+	--g-tag-font-size: var(--g-tag-xl-font-size);
+	--g-tag-padding-x: var(--g-tag-xl-padding-x);
+	--g-tag-padding-y: var(--g-tag-xl-padding-y);
+	--g-tag-min-height: var(--g-tag-xl-min-height);
+}
+
+/* ======================================================
+ * Tag Shape Variants
+ * ====================================================== */
+.g-tag--square {
+	border-radius: var(--g-tag-square-border-radius);
+}
+
+.g-tag--rounded {
+	border-radius: var(--g-tag-rounded-border-radius);
+}
+
+.g-tag--pill {
+	border-radius: 9999px;
+}
+
+/* ======================================================
+ * Tag States
+ * ====================================================== */
+.g-tag.is-clickable {
+	cursor: pointer;
+}
+
+.g-tag.is-clickable:hover {
+	transform: translateY(-1px);
+	opacity: 0.9;
+}
+
+.g-tag.is-clickable:active {
+	transform: translateY(0);
+}
+
+.g-tag.is-disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+.g-tag.is-active {
+	opacity: 0.8;
+}
+
+/* ======================================================
+ * Tag Content
+ * ====================================================== */
+.g-tag__icon {
+	width: 0.875em;
+	height: 0.875em;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.g-tag__text {
+	line-height: inherit;
+}
+
+/* ======================================================
+ * Tag Close Button
+ * ====================================================== */
+.g-tag__close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--g-tag-close-size);
+	height: var(--g-tag-close-size);
+	margin-left: calc(var(--g-tag-gap) * 0.5);
+	border-radius: 50%;
+	background: var(--g-tag-close-bg);
+	color: currentColor;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	transition: var(--g-tag-close-transition);
+	font-size: var(--g-tag-close-icon-size);
+	line-height: 1;
+	padding: 0;
+}
+
+.g-tag__close:hover {
+	background: var(--g-tag-close-hover-bg);
+	transform: scale(1.1);
+}
+
+.g-tag__close:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.g-tag--outline .g-tag__close {
+	background: var(--g-tag-close-outline-bg);
+}
+
+.g-tag--outline .g-tag__close:hover {
+	background: var(--g-tag-close-outline-hover-bg);
+}
+
+.g-tag--xs .g-tag__close {
+	width: 0.75rem;
+	height: 0.75rem;
+	font-size: 0.5rem;
+}
+
+.g-tag--sm .g-tag__close {
+	width: 0.875rem;
+	height: 0.875rem;
+	font-size: 0.5625rem;
+}
+
+.g-tag--lg .g-tag__close {
+	width: 1.125rem;
+	height: 1.125rem;
+	font-size: 0.6875rem;
+}
+
+.g-tag--xl .g-tag__close {
+	width: 1.25rem;
+	height: 1.25rem;
+	font-size: 0.75rem;
+}
+
+/* ======================================================
+ * Tag as Link
+ * ====================================================== */
+.g-tag--link {
+	text-decoration: none;
+}
+
+.g-tag--link:hover {
+	text-decoration: none;
+}
+
+/* ======================================================
+ * Tag Group
+ * ====================================================== */
+.g-tag-group {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+	align-items: center;
+}
+
+.g-tag-group--vertical {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+
+/* ======================================================
+ * Tag with Number/Count
+ * ====================================================== */
+.g-tag__count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.25em;
+	height: 1.25em;
+	margin-left: 0.25rem;
+	padding: 0 0.25rem;
+	border-radius: 0.625em;
+	background: rgba(255, 255, 255, 0.2);
+	font-size: 0.75em;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.g-tag--outline .g-tag__count {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.g-tag--light .g-tag__count {
+	background: currentColor;
+	opacity: 0.2;
+}
+
+/* ======================================================
+ * Responsive Design
+ * ====================================================== */
+@media (max-width: 640px) {
+	.g-tag-group {
+		gap: 0.25rem;
+	}
+	
+	.g-tag--xl {
+		--g-tag-font-size: var(--g-tag-lg-font-size);
+		--g-tag-padding-x: var(--g-tag-lg-padding-x);
+		--g-tag-padding-y: var(--g-tag-lg-padding-y);
+		--g-tag-min-height: var(--g-tag-lg-min-height);
+	}
+}
+
+/* ======================================================
+ * Tag Animations
+ * ====================================================== */
+.g-tag--new {
+	animation: g-tag-bounce-in 0.5s ease-out;
+}
+
+.g-tag--removing {
+	animation: g-tag-fade-out 0.3s ease-out forwards;
+}
+
+@keyframes g-tag-bounce-in {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes g-tag-fade-out {
+	to {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+}
