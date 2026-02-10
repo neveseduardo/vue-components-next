@@ -42,24 +42,19 @@
 <script setup lang="ts">
 import { computed, useAttrs, useSlots } from 'vue';
 
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 type Variant =
 	| 'default'
-	| 'primary'
+	| 'neutral'
+	| 'brand'
 	| 'success'
-	| 'warning'
-	| 'danger'
-	| 'info'
-	| 'secondary'
-	| 'link'
-	| 'link-neutral'
-	| 'brand';
+	| 'error'
 
-type Appearance = 'solid' | 'outlined';
+type Hierarchy = 'primary' | 'secondary' | 'tercinary' | 'soft';
 
 interface Props {
 	variant?: Variant;
-	appearance?: Appearance;
+	hierarchy?: Hierarchy;
 	size?: ButtonSize;
 	rounded?: boolean;
 	loading?: boolean;
@@ -69,7 +64,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
 	variant: 'default',
-	appearance: 'solid',
+	hierarchy: 'primary',
 	size: 'md',
 	rounded: false,
 	loading: false,
@@ -86,11 +81,8 @@ const slots = useSlots();
 
 const classes = computed(() => ({
 	[`g-button--${props.variant}`]: true,
-	[`g-button--${props.appearance}`]: true,
+	[`g-button--${props.hierarchy}`]: true,
 	[`g-button--${props.size}`]: true,
-	'is-loading': props.loading,
-	'is-disabled': props.disabled,
-	'is-rounded': props.rounded,
 	'is-icon-only': props.iconOnly,
 }));
 

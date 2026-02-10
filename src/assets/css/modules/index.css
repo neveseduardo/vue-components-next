@@ -1,12 +1,2 @@
-@import './button.css';
-@import './input.css';
-@import './select.css';
-@import './datepicker.css';
-@import './dropdown.css';
-@import './switch.css';
+@import './buttons.css';
 @import './theme-toggler.css';
-@import './card.css';
-@import './radio.css';
-@import './checkbox.css';
-@import './dialog.css';
-@import './drawer.css';

@@ -1,6 +1,18 @@
-@import 'element-plus/dist/index.css';
+@import url("https://fonts.cdnfonts.com/css/source-sans-pro");
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@import './utils/variables';
-@import './modules/index.css';
+@import "./utils/variables.css";
+@import "./modules/index.css";
+
+@theme {
+	--font-sans: "Source Sans Pro", system-ui, sans-serif;
+}
+
+@layer base {
+	body {
+		@apply font-sans;
+		background-color: var(--color-surface-default);
+		color: var(--color-text-default);
+	}
+}
